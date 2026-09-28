@@ -84,9 +84,14 @@ section{position:relative}
 @keyframes fade{to{opacity:1}}
 @keyframes bar{to{transform:scaleX(1)}}
 
+/* ---------- aviso de proyecto conceptual ---------- */
+/* Va arriba de todo, en el flujo. El nav fijo arranca debajo (--aviso-h lo mide un script)
+   y sube a top:0 cuando se vuelve sólido, que es cuando el aviso ya se fue con el scroll. */
+.aviso{background:var(--ink);color:var(--blush);font-size:.8rem;line-height:1.5;text-align:center;padding:10px 20px}
+
 /* ---------- navegación ---------- */
-.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 0;transition:transform .6s var(--ease),background .4s,padding .4s}
-.nav.solid{background:rgba(246,229,231,.8);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);padding:10px 0;box-shadow:0 1px 0 var(--line)}
+.nav{position:fixed;top:var(--aviso-h,0px);left:0;right:0;z-index:50;padding:16px 0;transition:transform .6s var(--ease),background .4s,padding .4s,top .4s}
+.nav.solid{top:0;background:rgba(246,229,231,.8);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);padding:10px 0;box-shadow:0 1px 0 var(--line)}
 .nav.hide{transform:translateY(-110%)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{font-family:var(--serif);font-size:1.5rem;letter-spacing:-.01em;text-decoration:none;line-height:1;white-space:nowrap}
@@ -379,6 +384,11 @@ footer{background:var(--ink);color:var(--blush);border-radius:var(--r-xl) var(--
 </style>
 </head>
 <body>
+
+<!-- aviso -->
+<div class="aviso" id="aviso">Proyecto conceptual de Giuliano Filomeni — el salón, el equipo y los precios son ficticios.</div>
+<script>(function(){var a=document.getElementById('aviso');function m(){document.documentElement.style.setProperty('--aviso-h',a.offsetHeight+'px')}m();addEventListener('resize',m)})()</script>
+<!-- /aviso -->
 
 <div class="progress" id="progress" aria-hidden="true"></div>
 
