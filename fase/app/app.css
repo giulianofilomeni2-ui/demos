@@ -1,0 +1,395 @@
+/* ==========================================================================
+   FASE · app.css — Portal del jugador (interfaz tipo app)
+   Densidad alta: escala de espaciado 8→32px, no la de marketing.
+   ========================================================================== */
+
+:root{
+  --rail: 246px;
+  --top: 66px;
+  --a1:.5rem; --a2:.75rem; --a3:1rem; --a4:1.5rem; --a5:2rem;
+}
+
+body.app{
+  background:var(--pitch);
+  font-size:15px;
+  overflow-x:hidden;
+}
+
+.layout{ display:grid; grid-template-columns:var(--rail) minmax(0,1fr); min-height:100vh; }
+
+/* ---------- RAIL LATERAL ------------------------------------------------ */
+.rail{
+  position:sticky; top:0; align-self:start;
+  height:100vh; display:flex; flex-direction:column;
+  padding:var(--a4) var(--a3);
+  background:var(--void);
+  box-shadow:1px 0 0 var(--line-soft);
+  z-index:60;
+}
+.rail .brand{ margin:0 .3rem var(--a5); font-size:1.4rem; }
+
+.rail-nav{ display:grid; gap:2px; }
+.rail-nav a{
+  position:relative; display:flex; align-items:center; gap:.7rem;
+  min-height:44px; padding:0 .8rem;
+  border-radius:var(--r); text-decoration:none;
+  font-family:var(--mono); font-size:.74rem; font-weight:500;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--ash);
+  transition:color var(--t-fast) linear, background var(--t-fast) linear, padding-left var(--t-mid) var(--ease-out);
+}
+.rail-nav a svg{ width:17px; height:17px; flex:none; opacity:.8; transition:opacity var(--t-fast); }
+.rail-nav a::before{
+  content:''; position:absolute; left:calc(var(--a3) * -1); top:50%; transform:translateY(-50%);
+  width:3px; height:0; background:var(--red); border-radius:0 2px 2px 0;
+  transition:height var(--t-mid) var(--ease-snap);
+}
+.rail-nav a:hover{ color:var(--bone); background:var(--surface); }
+.rail-nav a[aria-current="page"]{
+  color:var(--bone); background:var(--surface); padding-left:1rem;
+}
+.rail-nav a[aria-current="page"] svg{ opacity:1; color:var(--red); }
+.rail-nav a[aria-current="page"]::before{ height:60%; }
+
+.rail-foot{ margin-top:auto; padding-top:var(--a4); }
+.who{
+  display:flex; align-items:center; gap:.65rem;
+  padding:.65rem; border-radius:var(--r); background:var(--surface);
+  transition:background var(--t-fast);
+}
+.who:hover{ background:var(--surface-2); }
+.who .av{
+  width:36px; height:36px; flex:none; border-radius:var(--r);
+  background:linear-gradient(140deg,var(--red),var(--red-deep));
+  display:grid; place-items:center;
+  font-family:var(--display); font-weight:700; font-size:1rem; color:#fff;
+}
+.who b{ display:block; font-size:.9rem; font-weight:600; line-height:1.2; }
+.who span{ font-family:var(--mono); font-size:.65rem; color:var(--ash-dim); letter-spacing:.08em; text-transform:uppercase; }
+
+/* ---------- TOPBAR ------------------------------------------------------ */
+.top{
+  position:sticky; top:0; z-index:50;
+  height:var(--top); display:flex; align-items:center; gap:var(--a3);
+  padding:0 var(--a4);
+  background:rgba(14,13,18,.86); backdrop-filter:blur(14px);
+  box-shadow:0 1px 0 var(--line-soft);
+}
+.top h1{
+  font-family:var(--display); font-size:1.5rem; font-weight:700;
+  text-transform:uppercase; letter-spacing:.01em; margin:0 auto 0 0;
+}
+.top .when{ font-family:var(--mono); font-size:.7rem; color:var(--ash-dim); letter-spacing:.1em; text-transform:uppercase; white-space:nowrap; }
+.icon-btn{
+  width:44px; height:44px; display:grid; place-items:center;
+  background:var(--surface); border:0; border-radius:var(--r); color:var(--ash);
+  transition:background var(--t-fast), color var(--t-fast), transform var(--t-fast) var(--ease-snap);
+}
+.icon-btn:hover{ background:var(--surface-2); color:var(--bone); transform:translateY(-1px); }
+.icon-btn:active{ transform:scale(.94); transition-duration:60ms; }
+.icon-btn .bell{ position:relative; }
+.icon-btn .bell::after{
+  content:''; position:absolute; top:-1px; right:-1px; width:7px; height:7px;
+  border-radius:50%; background:var(--red); box-shadow:0 0 0 2px var(--surface);
+}
+
+/* ---------- ÁREA DE CONTENIDO ------------------------------------------- */
+.main{ padding:var(--a5) var(--a4) 5rem; max-width:1180px; }
+/* La visibilidad la manda [hidden] (atributo), no la clase: así la vista se
+   pinta aunque el JS de animación no llegue a correr. .on es solo el disparador. */
+.view{ display:block; }
+.view.on{ animation:viewIn 420ms var(--ease-out); }
+/* Sin JS los enlaces del rail siguen funcionando como anclas reales. */
+.view:target{ display:block !important; }
+@keyframes viewIn{
+  from{ opacity:0; transform:translate3d(0,16px,0); }
+  to  { opacity:1; transform:none; }
+}
+@media (prefers-reduced-motion:reduce){ .view.on{ animation:none; } }
+
+.row{ display:grid; gap:var(--a3); }
+.row.c2{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+.row.c3{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+.row.split{ grid-template-columns:minmax(0,1.45fr) minmax(0,1fr); }
+.stack{ display:grid; gap:var(--a3); }
+
+.card{
+  position:relative; padding:var(--a4);
+  background:var(--surface); border-radius:var(--r);
+  box-shadow:0 1px 0 var(--line-soft) inset, 0 18px 40px -34px #000;
+  overflow:hidden;
+}
+.card-hd{ display:flex; align-items:center; gap:.7rem; margin-bottom:var(--a3); }
+.card-hd h2{
+  font-family:var(--display); font-size:1.15rem; font-weight:700;
+  text-transform:uppercase; letter-spacing:.04em; margin:0;
+}
+.card-hd .tag{ margin-left:auto; }
+
+/* Tarjeta de sesión: la única con acento rojo fuerte del día */
+.card.focus{
+  background:
+    radial-gradient(120% 130% at 88% -10%, rgba(224,27,36,.22), transparent 58%),
+    linear-gradient(150deg,var(--surface-2),var(--surface));
+}
+.card.focus::after{
+  content:''; position:absolute; inset:auto 0 0 0; height:2px;
+  background:linear-gradient(90deg,var(--red),transparent 70%);
+}
+
+/* ---------- MÉTRICAS ---------------------------------------------------- */
+.kpi{ display:grid; gap:.2rem; }
+.kpi b{ font-family:var(--display); font-size:2.6rem; font-weight:700; line-height:.92; letter-spacing:-.02em; }
+.kpi b small{ font-family:var(--mono); font-size:.8rem; color:var(--ash-dim); letter-spacing:.06em; margin-left:.3rem; }
+.kpi span{ font-family:var(--mono); font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ash-dim); }
+
+/* Barra de carga semanal: sin grilla, solo columnas que crecen */
+.load{ display:flex; align-items:flex-end; gap:6px; height:78px; margin-top:var(--a3); }
+.load i{
+  flex:1; border-radius:1px; background:var(--surface-2);
+  height:var(--h,10%); position:relative;
+  transition:height 700ms var(--ease-out) var(--d,0ms), background var(--t-fast);
+}
+.view.on .load i{ animation:grow 700ms var(--ease-out) backwards; animation-delay:var(--d,0ms); }
+@keyframes grow{ from{ height:2%; } }
+.load i.hi{ background:linear-gradient(180deg,var(--red),var(--red-deep)); }
+.load i.today{ background:linear-gradient(180deg,var(--signal),#5d7a1f); }
+.load-x{ display:flex; gap:6px; margin-top:.45rem; }
+.load-x span{ flex:1; text-align:center; font-family:var(--mono); font-size:.6rem; color:var(--ash-dim); letter-spacing:.08em; }
+
+/* ---------- EJERCICIOS -------------------------------------------------- */
+.block-hd{
+  display:flex; align-items:baseline; gap:.7rem; margin:var(--a4) 0 var(--a2);
+}
+.block-hd b{ font-family:var(--display); font-size:1.05rem; text-transform:uppercase; letter-spacing:.06em; }
+.block-hd small{ font-family:var(--mono); font-size:.66rem; color:var(--ash-dim); letter-spacing:.12em; text-transform:uppercase; }
+.block-hd::after{ content:''; flex:1; height:1px; background:var(--line-soft); }
+
+.lift{
+  display:grid; grid-template-columns:auto minmax(0,1fr) auto;
+  gap:var(--a3); align-items:center;
+  padding:.85rem var(--a3); margin-bottom:4px;
+  border-radius:var(--r);
+  background:linear-gradient(100deg,var(--surface-2) 0%, rgba(27,26,34,.35) 78%);
+  transition:transform var(--t-fast) var(--ease-out), background var(--t-fast) linear;
+}
+.lift:hover{ transform:translateX(5px); background:linear-gradient(100deg,rgba(224,27,36,.16) 0%, rgba(27,26,34,.35) 78%); }
+.lift.done{ opacity:.5; }
+.lift.done .lift-name b{ text-decoration:line-through; text-decoration-color:var(--signal); }
+
+.check{
+  width:26px; height:26px; flex:none; border-radius:var(--r);
+  background:transparent; border:1.5px solid var(--line);
+  display:grid; place-items:center; color:transparent;
+  transition:border-color var(--t-fast), background var(--t-fast), color var(--t-fast), transform var(--t-fast) var(--ease-snap);
+}
+.check:hover{ border-color:var(--red); }
+.check:active{ transform:scale(.88); }
+.lift.done .check{ background:var(--signal); border-color:var(--signal); color:var(--void); }
+
+.lift-name b{ display:block; font-size:.97rem; font-weight:600; }
+.lift-name span{ font-family:var(--mono); font-size:.68rem; color:var(--ash-dim); letter-spacing:.06em; }
+.lift-set{ display:flex; gap:.4rem; align-items:center; }
+.chip{
+  font-family:var(--mono); font-size:.7rem; font-weight:500;
+  padding:.3rem .5rem; border-radius:var(--r);
+  background:rgba(242,239,233,.05); color:var(--ash); white-space:nowrap;
+}
+.chip.k{ background:rgba(224,27,36,.16); color:var(--red-ink); }
+
+/* ---------- ANILLOS DE MACROS ------------------------------------------- */
+.rings{ display:flex; gap:var(--a4); align-items:center; flex-wrap:wrap; }
+.ring{ position:relative; width:118px; height:118px; flex:none; }
+.ring svg{ width:100%; height:100%; transform:rotate(-90deg); }
+.ring circle{ fill:none; stroke-width:9; stroke-linecap:round; }
+.ring .bg{ stroke:var(--surface-2); }
+.ring .fg{
+  stroke-dasharray:var(--c) var(--c);
+  stroke-dashoffset:var(--c);
+  transition:stroke-dashoffset 1100ms var(--ease-out) var(--d,0ms);
+}
+.view.on .ring .fg{ stroke-dashoffset:var(--off); }
+.ring-mid{
+  position:absolute; inset:0; display:grid; place-content:center; text-align:center;
+}
+.ring-mid b{ font-family:var(--display); font-size:1.5rem; line-height:1; font-weight:700; }
+.ring-mid span{ font-family:var(--mono); font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ash-dim); }
+
+/* ---------- TIMELINE PRE-PARTIDO ---------------------------------------- */
+.tl{ position:relative; padding-left:1.6rem; }
+.tl::before{
+  content:''; position:absolute; left:5px; top:8px; bottom:8px; width:1px;
+  background:linear-gradient(var(--red), var(--red-deep) 70%, transparent);
+}
+.tl-item{ position:relative; padding:0 0 var(--a4); }
+.tl-item:last-child{ padding-bottom:0; }
+.tl-item::before{
+  content:''; position:absolute; left:-1.6rem; top:.35rem;
+  width:11px; height:11px; border-radius:50%;
+  background:var(--pitch); box-shadow:0 0 0 2px var(--red);
+  transition:background var(--t-mid), box-shadow var(--t-mid);
+}
+.tl-item.now::before{ background:var(--red); box-shadow:0 0 0 4px rgba(224,27,36,.25); }
+.tl-t{ font-family:var(--mono); font-size:.68rem; color:var(--red-ink); letter-spacing:.12em; text-transform:uppercase; }
+.tl-item b{ display:block; margin:.2rem 0 .15rem; font-size:.97rem; font-weight:600; }
+.tl-item p{ margin:0; font-size:.88rem; color:var(--ash); }
+
+/* ---------- SELECTOR DE TAPONES ----------------------------------------- */
+.pitch-sel{ display:flex; gap:4px; flex-wrap:wrap; margin-bottom:var(--a4); }
+.pitch-sel button{
+  flex:1; min-width:110px; min-height:46px; padding:.5rem .8rem;
+  background:var(--surface-2); border:0; border-radius:var(--r);
+  font-family:var(--mono); font-size:.7rem; font-weight:500;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--ash);
+  transition:background var(--t-fast), color var(--t-fast), transform var(--t-fast) var(--ease-snap);
+}
+.pitch-sel button:hover{ background:#24222c; color:var(--bone); transform:translateY(-2px); }
+.pitch-sel button[aria-pressed="true"]{ background:var(--red-btn); color:#fff; }
+/* El grupo de RPE son cuatro etiquetas cortas: con el mínimo de 110px pensado
+   para "Cancha pesada o barrosa" se le partía la fila en 3 + 1. */
+.pitch-sel.tight button{ min-width:62px; }
+.stud-out{ display:grid; gap:var(--a2); animation:viewIn 320ms var(--ease-out); }
+.stud-out .big{
+  font-family:var(--display); font-size:2.2rem; font-weight:700;
+  text-transform:uppercase; letter-spacing:.01em; line-height:1;
+}
+
+/* ---------- RECURSOS ---------------------------------------------------- */
+.res{
+  display:flex; gap:var(--a3); align-items:center;
+  padding:var(--a3); border-radius:var(--r);
+  background:var(--surface); text-decoration:none;
+  transition:transform var(--t-fast) var(--ease-out), background var(--t-fast);
+}
+.res:hover{ transform:translateY(-3px); background:var(--surface-2); }
+.res .ic{
+  width:42px; height:42px; flex:none; border-radius:var(--r);
+  display:grid; place-items:center; color:var(--red);
+  background:rgba(224,27,36,.12);
+}
+.res b{ display:block; font-size:.97rem; font-weight:600; }
+.res span{ font-family:var(--mono); font-size:.66rem; color:var(--ash-dim); letter-spacing:.08em; text-transform:uppercase; }
+.res .go{ margin-left:auto; color:var(--ash-dim); transition:transform var(--t-mid) var(--ease-out), color var(--t-fast); }
+.res:hover .go{ transform:translateX(4px); color:var(--red-ink); }
+
+.note{
+  font-family:var(--mono); font-size:.68rem; line-height:1.6;
+  color:var(--ash-dim); letter-spacing:.04em;
+  padding:var(--a3); border-radius:var(--r);
+  background:rgba(242,239,233,.035);
+}
+
+/* ---------- BOTTOM NAV (móvil) ------------------------------------------ */
+.tabbar{ display:none; }
+
+@media (max-width:1080px){
+  .row.split, .row.c3{ grid-template-columns:1fr; }
+}
+@media (max-width:860px){
+  :root{ --rail:0px; }
+  .layout{ grid-template-columns:1fr; }
+  .rail{ display:none; }
+  .main{ padding:var(--a4) var(--a3) 6.5rem; }
+  .row.c2{ grid-template-columns:1fr; }
+  /* La topbar se queda con lo esencial: título y notificaciones. */
+  .top{ padding:0 var(--a3); gap:.6rem; }
+  .top .tag{ display:none; }
+
+  /* Sin rail no hay navegación: la barra de abajo aparece acá, no a 520px.
+     Debajo de 860 el portal se maneja como app de celular. */
+  .tabbar{
+    position:fixed; left:0; right:0; bottom:0; z-index:80;
+    display:grid; grid-template-columns:repeat(4,1fr);
+    background:rgba(8,7,10,.94); backdrop-filter:blur(18px) saturate(1.3);
+    box-shadow:0 -1px 0 var(--line-soft);
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  .tabbar a{
+    position:relative;
+    display:grid; justify-items:center; gap:3px;
+    min-height:58px; padding:.6rem 0; text-decoration:none;
+    font-family:var(--mono); font-size:.58rem; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--ash-dim);
+    transition:color var(--t-fast);
+  }
+  .tabbar a svg{ width:19px; height:19px; transition:transform var(--t-mid) var(--ease-snap); }
+  .tabbar a[aria-current="page"]{ color:var(--red-ink); }
+  .tabbar a[aria-current="page"] svg{ transform:translateY(-2px); }
+  /* Marca de pestaña activa: una barra corta arriba, no un recuadro. */
+  .tabbar a::before{
+    content:''; position:absolute; top:0; left:50%; transform:translateX(-50%) scaleX(0);
+    width:34px; height:2px; background:var(--red);
+    transition:transform var(--t-mid) var(--ease-out);
+  }
+  .tabbar a[aria-current="page"]::before{ transform:translateX(-50%) scaleX(1); }
+}
+@media (max-width:520px){
+  .top .when{ display:none; }
+  .tabbar a{ font-size:.55rem; }
+}
+
+/* ---------- CABECERA DE APP (móvil) ------------------------------------- */
+/* Sin rail, la marca y la salida al sitio viven en la topbar. */
+.app-brand{ display:none; }
+@media (max-width:860px){
+  .app-brand{
+    display:flex; align-items:center; gap:.45rem;
+    margin-right:.2rem; text-decoration:none; flex:none;
+  }
+  .app-brand svg{ width:19px; height:19px; }
+  .app-brand span{
+    font-family:var(--display); font-weight:700; font-size:1.15rem;
+    text-transform:uppercase; letter-spacing:.02em;
+  }
+  .top h1{ font-size:1.15rem; }
+}
+
+/* ---------- INSTALAR ----------------------------------------------------- */
+.install{
+  display:none; align-items:center; gap:.6rem; width:100%;
+  margin-top:var(--a2); padding:.7rem .8rem;
+  background:linear-gradient(100deg, rgba(224,27,36,.16), transparent 75%);
+  border:0; border-radius:var(--r); text-align:left;
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--bone);
+  transition:background var(--t-fast);
+}
+.install.on{ display:flex; }
+.install:hover{ background:linear-gradient(100deg, rgba(224,27,36,.3), transparent 75%); }
+.install svg{ width:15px; height:15px; flex:none; color:var(--red-ink); }
+
+.leave{
+  display:flex; align-items:center; gap:.5rem;
+  margin-top:var(--a2); padding:.55rem .8rem;
+  border-radius:var(--r); text-decoration:none;
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--ash-dim);
+  transition:color var(--t-fast), background var(--t-fast);
+}
+.leave:hover{ color:var(--bone); background:var(--surface); }
+.leave svg{ width:14px; height:14px; flex:none; }
+
+/* ---------- ARRANQUE ----------------------------------------------------- */
+/* Un latido de marca al abrir: hace que entrar al portal se sienta como
+   abrir una app, no como cargar otra página del sitio. */
+.boot{
+  position:fixed; inset:0; z-index:400;
+  display:grid; place-items:center; background:var(--void);
+  animation:bootOut 420ms var(--ease-in) 560ms forwards;
+}
+.boot p{
+  font-family:var(--display); font-weight:700; text-transform:uppercase;
+  font-size:clamp(2.6rem,10vw,4.5rem); line-height:.8; letter-spacing:-.02em;
+  margin:0; color:var(--bone);
+  animation:bootIn 480ms var(--ease-out) both;
+}
+.boot p i{ color:var(--red); font-style:normal; }
+@keyframes bootIn { from{ opacity:0; transform:translate3d(0,14px,0) } to{ opacity:1; transform:none } }
+@keyframes bootOut{ to{ opacity:0; visibility:hidden } }
+@media (prefers-reduced-motion:reduce){ .boot{ display:none } }
+
+/* En modo instalado no hay barra de navegador: recuperamos ese alto y
+   respetamos el notch. */
+@media (display-mode:standalone){
+  .top{ padding-top:env(safe-area-inset-top); height:calc(var(--top) + env(safe-area-inset-top)); }
+  .leave{ display:none; }
+}

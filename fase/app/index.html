@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portal del jugador — FASE</title>
+<meta name="description" content="Portal privado del jugador: plan de gimnasio, nutrición, carga pre-partido, suplementación y recursos.">
+<meta name="theme-color" content="#0e0d12">
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%2308070a'/%3E%3Cpath%20d='M9%2024%20L17%208%20h6%20L15%2024%20Z'%20fill='%23e01b24'/%3E%3Cpath%20d='M6%2018%20h9%20l-1.6%203.2%20H4.4%20Z'%20fill='%23f2efe9'/%3E%3C/svg%3E">
+
+<!-- Instalable: en el celular se agrega a la pantalla de inicio y abre
+     sin barra de navegador. Es una app, no una pestaña del sitio. -->
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="FASE">
+
+<link rel="stylesheet" href="../base.css">
+<link rel="stylesheet" href="app.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="app">
+
+<a class="skip" href="#main">Saltar al contenido</a>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Arranque: medio segundo de marca, como cualquier app al abrir. -->
+<div class="boot" data-boot aria-hidden="true"><p>FA<i>S</i>E</p></div>
+
+<div class="layout">
+
+  <!-- ===================== RAIL ===================== -->
+  <aside class="rail">
+    <a class="brand" href="../index.html" aria-label="FASE, volver al sitio">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path class="slash" d="M9 26 L18 6 h6 L15 26 Z" fill="#e01b24"/>
+        <path d="M4 19 h10 l-1.7 3.4 H2.3 Z" fill="#f2efe9"/>
+      </svg>
+      <span>Fase</span>
+    </a>
+
+    <nav class="rail-nav" aria-label="Secciones del portal">
+      <a href="#hoy" data-view="hoy" aria-current="page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
+        Hoy
+      </a>
+      <a href="#gimnasio" data-view="gimnasio">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M6.5 6.5v11M17.5 6.5v11M3 9v6M21 9v6M6.5 12h11"/></svg>
+        Gimnasio
+      </a>
+      <a href="#nutricion" data-view="nutricion">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-4 4-6 6.5-6 9.5A6 6 0 0 0 18 12.5C18 9.5 16 7 12 3z"/></svg>
+        Nutrición
+      </a>
+      <a href="#extras" data-view="extras">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5zM3 14l9 5 9-5"/></svg>
+        Extras
+      </a>
+    </nav>
+
+    <div class="rail-foot">
+      <div class="who">
+        <span class="av" aria-hidden="true">TM</span>
+        <div>
+          <b>Tomás Medina</b>
+          <span>2ª línea · 98 kg</span>
+        </div>
+      </div>
+
+      <button class="install" type="button" data-install hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+        Instalar la app
+      </button>
+
+      <a class="leave" href="../index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H6m5-6-6 6 6 6"/></svg>
+        Salir al sitio
+      </a>
+    </div>
+  </aside>
+
+  <!-- ===================== COLUMNA PRINCIPAL ===================== -->
+  <div>
+    <header class="top">
+      <a class="app-brand" href="../index.html" aria-label="FASE, volver al sitio">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path class="slash" d="M9 26 L18 6 h6 L15 26 Z" fill="#e01b24"/>
+        <path d="M4 19 h10 l-1.7 3.4 H2.3 Z" fill="#f2efe9"/>
+      </svg>
+        <span>Fase</span>
+      </a>
+      <h1 data-title>Hoy</h1>
+      <span class="tag tag-red"><span class="dot"></span>Semana 7 / 12 · Conversión</span>
+      <span class="when">Martes 12 · 06:40</span>
+      <button class="icon-btn" type="button" aria-label="Notificaciones (2 sin leer)">
+        <span class="bell" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M18 9a6 6 0 1 0-12 0c0 5-2 6-2 6h16s-2-1-2-6M10.5 20a2 2 0 0 0 3 0"/></svg>
+        </span>
+      </button>
+    </header>
+
+    <main class="main" id="main">
+
+      <!-- ==================== HOY ==================== -->
+      <section class="view on" id="hoy" aria-labelledby="h-hoy">
+        <h2 id="h-hoy" class="sr-only">Resumen de hoy</h2>
+
+        <div class="row split">
+          <article class="card focus">
+            <div class="card-hd">
+              <h2>Sesión de hoy</h2>
+              <span class="tag tag-red"><span class="dot"></span>Tren inferior</span>
+            </div>
+            <p class="kpi" style="margin-bottom:1rem">
+              <b>Fuerza + Potencia<small>72 min</small></b>
+              <span>Bloque A · B · Transferencia</span>
+            </p>
+            <p style="color:var(--ash);margin:0 0 1.4rem;max-width:48ch">
+              Sentadilla pesada al 85% y salto al cajón en contraste. Cerrás con empuje de
+              trineo a altura de scrum: hoy todo lo que levantás tiene que salir rápido.
+            </p>
+            <a class="btn btn-sm" href="#gimnasio" data-go="gimnasio">
+              Abrir la sesión
+              <svg class="btn-ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+
+          <article class="card">
+            <div class="card-hd"><h2>Carga semanal</h2><span class="tag">Tonelaje</span></div>
+            <p class="kpi"><b class="num">31.480<small>kg</small></b><span>Aguda / crónica · 1.08 — en rango</span></p>
+            <div class="load" aria-hidden="true">
+              <i style="--h:46%;--d:0ms"></i>
+              <i class="hi" style="--h:88%;--d:60ms"></i>
+              <i style="--h:24%;--d:120ms"></i>
+              <i class="today" style="--h:72%;--d:180ms"></i>
+              <i style="--h:38%;--d:240ms"></i>
+              <i class="hi" style="--h:64%;--d:300ms"></i>
+              <i style="--h:12%;--d:360ms"></i>
+            </div>
+            <div class="load-x" aria-hidden="true">
+              <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="row c3" style="margin-top:1rem">
+          <article class="card">
+            <div class="card-hd"><h2>Ingesta</h2><span class="tag tag-amber"><span class="dot"></span>77%</span></div>
+            <p class="kpi"><b class="num">3.140<small>kcal</small></b><span>Objetivo 4.050 kcal</span></p>
+          </article>
+          <article class="card">
+            <div class="card-hd"><h2>Suplementos</h2><span class="tag tag-ok"><span class="dot"></span>2 de 3</span></div>
+            <p class="kpi"><b class="num">17:30</b><span>Próximo · pre-entreno</span></p>
+          </article>
+          <article class="card">
+            <div class="card-hd"><h2>Próximo partido</h2><span class="tag">Sábado</span></div>
+            <p class="kpi"><b class="num">4<small>días</small></b><span>Carga energética desde el jueves</span></p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==================== GIMNASIO ==================== -->
+      <section class="view" id="gimnasio" aria-labelledby="h-gym" hidden>
+        <h2 id="h-gym" class="sr-only">Plan de gimnasio</h2>
+
+        <div class="row split">
+          <div class="stack">
+            <article class="card">
+              <div class="card-hd">
+                <h2>Martes · Tren inferior</h2>
+                <span class="tag" data-progress>0 de 5 hechos</span>
+              </div>
+
+              <div class="block-hd"><b>Bloque A</b><small>Fuerza máxima · 3′ de pausa</small></div>
+
+              <div class="lift" data-lift>
+                <button class="check" type="button" aria-pressed="false" aria-label="Marcar Sentadilla trasera como hecha">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>
+                </button>
+                <span class="lift-name"><b>Sentadilla trasera</b><span>Barra alta · profundidad completa</span></span>
+                <span class="lift-set"><i class="chip">5×3</i><i class="chip k">85%</i><i class="chip">RIR 2</i></span>
+              </div>
+
+              <div class="lift" data-lift>
+                <button class="check" type="button" aria-pressed="false" aria-label="Marcar Salto al cajón como hecho">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>
+                </button>
+                <span class="lift-name"><b>Salto al cajón desde media sentadilla</b><span>Contraste · máxima intención</span></span>
+                <span class="lift-set"><i class="chip">5×3</i><i class="chip k">60 cm</i><i class="chip">90″</i></span>
+              </div>
+
+              <div class="block-hd"><b>Bloque B</b><small>Accesorios · cadena posterior</small></div>
+
+              <div class="lift" data-lift>
+                <button class="check" type="button" aria-pressed="false" aria-label="Marcar Peso muerto rumano como hecho">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>
+                </button>
+                <span class="lift-name"><b>Peso muerto rumano</b><span>Tempo 3–0–1 · escápulas fijas</span></span>
+                <span class="lift-set"><i class="chip">4×6</i><i class="chip k">70%</i><i class="chip">RIR 2</i></span>
+              </div>
+
+              <div class="lift" data-lift>
+                <button class="check" type="button" aria-pressed="false" aria-label="Marcar Nórdico excéntrico como hecho">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>
+                </button>
+                <span class="lift-name"><b>Nórdico excéntrico</b><span>Bajada de 4″ · isquios</span></span>
+                <span class="lift-set"><i class="chip">3×5</i><i class="chip">PC</i><i class="chip">Prevención</i></span>
+              </div>
+
+              <div class="block-hd"><b>Transferencia</b><small>A la cancha · el bloque que no se saltea</small></div>
+
+              <div class="lift" data-lift>
+                <button class="check" type="button" aria-pressed="false" aria-label="Marcar Empuje de trineo como hecho">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>
+                </button>
+                <span class="lift-name"><b>Empuje de trineo 15 m</b><span>Altura de scrum · cadera bajo hombros</span></span>
+                <span class="lift-set"><i class="chip">6 series</i><i class="chip k">+60 kg</i><i class="chip">2′</i></span>
+              </div>
+            </article>
+          </div>
+
+          <div class="stack">
+            <article class="card">
+              <div class="card-hd"><h2>Cómo se siente</h2></div>
+              <p style="color:var(--ash);margin:0 0 1rem;font-size:.92rem">
+                Cargá tu RPE al terminar. Es lo que usa el preparador para decidir si la semana
+                que viene sube o se frena.
+              </p>
+              <div class="pitch-sel tight" role="group" aria-label="RPE de la sesión">
+                <button type="button" aria-pressed="false">RPE 6</button>
+                <button type="button" aria-pressed="false">RPE 7</button>
+                <button type="button" aria-pressed="true">RPE 8</button>
+                <button type="button" aria-pressed="false">RPE 9</button>
+              </div>
+              <p class="note" style="margin:0">
+                Objetivo de la sesión: RPE 8. Si llegás a 9,5 en la primera serie pesada,
+                bajá un 5% y avisá por el chat.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="card-hd"><h2>La semana</h2></div>
+              <div class="stack" style="gap:4px">
+                <div class="lift"><span class="check" aria-hidden="true"></span><span class="lift-name"><b>Lunes · Empuje</b><span>Fuerza + cuello</span></span><span class="lift-set"><i class="chip">Hecho</i></span></div>
+                <div class="lift"><span class="check" aria-hidden="true"></span><span class="lift-name"><b>Miércoles · Cancha</b><span>Velocidad y COD</span></span><span class="lift-set"><i class="chip">Club</i></span></div>
+                <div class="lift"><span class="check" aria-hidden="true"></span><span class="lift-name"><b>Jueves · Tracción</b><span>Dorsal y agarre</span></span><span class="lift-set"><i class="chip">45′</i></span></div>
+                <div class="lift"><span class="check" aria-hidden="true"></span><span class="lift-name"><b>Viernes · Activación</b><span>Corto, sin fatiga</span></span><span class="lift-set"><i class="chip">20′</i></span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== NUTRICIÓN ==================== -->
+      <section class="view" id="nutricion" aria-labelledby="h-nut" hidden>
+        <h2 id="h-nut" class="sr-only">Nutrición y suplementación</h2>
+
+        <div class="row split">
+          <article class="card">
+            <div class="card-hd"><h2>Ingesta de hoy</h2><span class="tag">98 kg · doble turno</span></div>
+            <div class="rings">
+              <div class="ring">
+                <svg viewBox="0 0 120 120" aria-hidden="true">
+                  <circle class="bg" cx="60" cy="60" r="52"></circle>
+                  <circle class="fg" cx="60" cy="60" r="52" stroke="#e01b24" style="--c:327;--off:46;--d:80ms"></circle>
+                </svg>
+                <p class="ring-mid"><b>86%</b><span>Proteína</span></p>
+              </div>
+              <div class="ring">
+                <svg viewBox="0 0 120 120" aria-hidden="true">
+                  <circle class="bg" cx="60" cy="60" r="52"></circle>
+                  <circle class="fg" cx="60" cy="60" r="52" stroke="#f5a524" style="--c:327;--off:75;--d:200ms"></circle>
+                </svg>
+                <p class="ring-mid"><b>77%</b><span>Carbos</span></p>
+              </div>
+              <div class="ring">
+                <svg viewBox="0 0 120 120" aria-hidden="true">
+                  <circle class="bg" cx="60" cy="60" r="52"></circle>
+                  <circle class="fg" cx="60" cy="60" r="52" stroke="#c8ff4d" style="--c:327;--off:69;--d:320ms"></circle>
+                </svg>
+                <p class="ring-mid"><b>79%</b><span>Grasas</span></p>
+              </div>
+              <div class="stack" style="gap:.7rem;min-width:150px">
+                <p class="kpi"><b class="num">168<small>/ 195 g</small></b><span>Proteína</span></p>
+                <p class="kpi"><b class="num">402<small>/ 520 g</small></b><span>Carbohidratos</span></p>
+                <p class="kpi"><b class="num">71<small>/ 90 g</small></b><span>Grasas</span></p>
+              </div>
+            </div>
+
+            <div class="block-hd"><b>Comidas cargadas</b><small>4 de 6</small></div>
+            <div class="lift"><span class="check" aria-hidden="true"></span><span class="lift-name"><b>Desayuno · 06:10</b><span>Avena, huevos, banana, miel</span></span><span class="lift-set"><i class="chip">840 kcal</i><i class="chip k">112 g HC</i></span></div>
+            <div class="lift"><span class="check" aria-hidden="true"></span><span class="lift-name"><b>Post-entreno · 08:20</b><span>Whey + arroz con pollo</span></span><span class="lift-set"><i class="chip">710 kcal</i><i class="chip k">45 g P</i></span></div>
+            <div class="lift"><span class="check" aria-hidden="true"></span><span class="lift-name"><b>Almuerzo · 13:00</b><span>Carne, papa, ensalada, aceite de oliva</span></span><span class="lift-set"><i class="chip">980 kcal</i><i class="chip">28 g G</i></span></div>
+            <div class="lift"><span class="check" aria-hidden="true"></span><span class="lift-name"><b>Merienda · 16:30</b><span>Yogur, granola, dulce de leche</span></span><span class="lift-set"><i class="chip">610 kcal</i><i class="chip k">88 g HC</i></span></div>
+          </article>
+
+          <div class="stack">
+            <article class="card">
+              <div class="card-hd"><h2>Carga pre-partido</h2><span class="tag tag-red"><span class="dot"></span>Sábado 15:30</span></div>
+              <p style="color:var(--ash);margin:0 0 1.2rem;font-size:.92rem">
+                La idea es entrar con el glucógeno lleno y el estómago vacío. Cuanto más cerca
+                del partido, más simple y menos fibra.
+              </p>
+
+              <div class="tl">
+                <div class="tl-item">
+                  <p class="tl-t">−24 h · Viernes</p>
+                  <b>Carga alta de carbohidratos</b>
+                  <p>8–10 g/kg repartidos en el día. Arroz, papa, pastas, fruta. Bajá fibra y grasa.</p>
+                </div>
+                <div class="tl-item">
+                  <p class="tl-t">−3 h</p>
+                  <b>Última comida sólida</b>
+                  <p>2 g/kg de HC: arroz blanco con pollo y una cucharada de miel. Nada de fritura ni integrales.</p>
+                </div>
+                <div class="tl-item now">
+                  <p class="tl-t">−90 min</p>
+                  <b>Tostada con queso crema y mermelada</b>
+                  <p>~60 g de HC de absorción rápida. El queso crema aporta algo de grasa y proteína sin pesar; la mermelada es el azúcar simple que se va al músculo.</p>
+                </div>
+                <div class="tl-item">
+                  <p class="tl-t">−30 min</p>
+                  <b>Sobre de miel + agua con sal</b>
+                  <p>20–25 g de HC líquidos y sodio para arrancar hidratado. Sin fibra, sin lácteos enteros.</p>
+                </div>
+                <div class="tl-item">
+                  <p class="tl-t">Entretiempo</p>
+                  <b>Bebida deportiva 30 g HC</b>
+                  <p>Si el estómago no la banca, enjuague bucal de 10 segundos: la boca avisa al cerebro igual.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-hd"><h2>Suplementación</h2><span class="tag tag-ok"><span class="dot"></span>2 de 3 hoy</span></div>
+              <div class="lift"><span class="check" aria-hidden="true"></span><span class="lift-name"><b>Creatina monohidrato</b><span>5 g diarios, con o sin entrenamiento</span></span><span class="lift-set"><i class="chip">Diario</i><i class="chip k">Tomada</i></span></div>
+              <div class="lift"><span class="check" aria-hidden="true"></span><span class="lift-name"><b>Proteína de suero (whey)</b><span>Solo si no llegás a la proteína con comida</span></span><span class="lift-set"><i class="chip">35 g</i><i class="chip k">Post</i></span></div>
+              <div class="lift"><span class="check" aria-hidden="true"></span><span class="lift-name"><b>Pre-entreno con cafeína</b><span>3 mg/kg · nunca después de las 18:00</span></span><span class="lift-set"><i class="chip">17:30</i><i class="chip">Pendiente</i></span></div>
+              <p class="note" style="margin-top:1rem">
+                Los suplementos completan una dieta, no la reemplazan. Las dosis las define el
+                nutricionista del staff según tu peso, tus análisis y el reglamento antidopaje
+                de la unión. Consultá antes de agregar cualquier producto por tu cuenta.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== EXTRAS ==================== -->
+      <section class="view" id="extras" aria-labelledby="h-ext" hidden>
+        <h2 id="h-ext" class="sr-only">Extras y equipamiento</h2>
+
+        <div class="row split">
+          <article class="card">
+            <div class="card-hd"><h2>Elegir tapones</h2><span class="tag">Equipamiento</span></div>
+            <p style="color:var(--ash);margin:0 0 1.2rem;font-size:.92rem">
+              Tocá cómo está la cancha hoy. El tapón equivocado no es solo menos agarre:
+              es rodilla y tobillo trabados en un cambio de dirección.
+            </p>
+
+            <div class="pitch-sel" role="group" aria-label="Estado de la cancha">
+              <button type="button" data-pitch="seca" aria-pressed="true">Seca y dura</button>
+              <button type="button" data-pitch="firme" aria-pressed="false">Firme</button>
+              <button type="button" data-pitch="pesada" aria-pressed="false">Pesada y barrosa</button>
+              <button type="button" data-pitch="sinte" aria-pressed="false">Sintético</button>
+            </div>
+
+            <div class="stud-out" data-stud-out aria-live="polite"></div>
+          </article>
+
+          <div class="stack">
+            <article class="card">
+              <div class="card-hd"><h2>Recursos</h2><span class="tag">Actualizado</span></div>
+              <div class="stack" style="gap:4px">
+                <a class="res" href="#">
+                  <span class="ic" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 20v-8M8 20v-4M16 20v-6M4 4h16v16H4z"/></svg></span>
+                  <span><b>Protocolo de 20 minutos post-partido</b><span>Video · 6 min</span></span>
+                  <svg class="go" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+                </a>
+                <a class="res" href="#">
+                  <span class="ic" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+                  <span><b>Movilidad de cadera para primera línea</b><span>Rutina · 12 min diarios</span></span>
+                  <svg class="go" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+                </a>
+                <a class="res" href="#">
+                  <span class="ic" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a4 4 0 0 1 4 4v3a4 4 0 0 1-8 0V7a4 4 0 0 1 4-4zM6 21h12"/></svg></span>
+                  <span><b>Cuello: progresión isométrica en 6 semanas</b><span>Plan · forwards</span></span>
+                  <svg class="go" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+                </a>
+                <a class="res" href="#">
+                  <span class="ic" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l2 2 4-5M5 4h14v16H5z"/></svg></span>
+                  <span><b>Volver de un esguince de tobillo grado I</b><span>Checklist · 5 fases</span></span>
+                  <svg class="go" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-hd"><h2>Dato de la semana</h2></div>
+              <p style="margin:0;color:var(--ash);font-size:.94rem">
+                Revisá los tapones de aluminio antes de cada partido: si el borde quedó filoso
+                por el desgaste, el árbitro te lo saca en el control de botines y jugás con lo
+                que haya. Una lima de metal y treinta segundos lo resuelven.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- ===================== TABBAR MÓVIL ===================== -->
+<nav class="tabbar" aria-label="Secciones del portal">
+  <a href="#hoy" data-view="hoy" aria-current="page">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>Hoy
+  </a>
+  <a href="#gimnasio" data-view="gimnasio">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M6.5 6.5v11M17.5 6.5v11M3 9v6M21 9v6M6.5 12h11"/></svg>Gimnasio
+  </a>
+  <a href="#nutricion" data-view="nutricion">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-4 4-6 6.5-6 9.5A6 6 0 0 0 18 12.5C18 9.5 16 7 12 3z"/></svg>Nutrición
+  </a>
+  <a href="#extras" data-view="extras">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5zM3 14l9 5 9-5"/></svg>Extras
+  </a>
+</nav>
+
+<script src="app.js"></script>
+</body>
+</html>

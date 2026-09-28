@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FASE — Alto rendimiento para rugby</title>
+<meta name="description" content="Preparación física para jugadores de rugby de clubes argentinos. Bloques de fuerza, potencia y transferencia a la cancha, nutrición de competencia y una app con tu semana cargada.">
+<meta name="theme-color" content="#08070a">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://fase.example/">
+
+<meta property="og:title" content="FASE — Alto rendimiento para rugby">
+<meta property="og:description" content="El partido se gana en el minuto 65. Ahí te preparamos.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:image" content="assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/hero-1280.webp"
+      imagesrcset="assets/hero-820.webp 820w, assets/hero-1280.webp 1280w, assets/hero-2000.webp 2000w"
+      imagesizes="100vw" fetchpriority="high">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%2308070a'/%3E%3Cpath%20d='M9%2024%20L17%208%20h6%20L15%2024%20Z'%20fill='%23e01b24'/%3E%3Cpath%20d='M6%2018%20h9%20l-1.6%203.2%20H4.4%20Z'%20fill='%23f2efe9'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="site.css">
+<script>
+// La clase .js habilita ocultar el contenido para revelarlo al scroll y el
+// fundido de las fotos. Si main.js no llega a correr (404, bloqueado, error),
+// la sacamos: antes una página sin animaciones que una página en blanco.
+document.documentElement.classList.add('js');
+setTimeout(function(){ if(!window.__fase) document.documentElement.classList.remove('js'); }, 6000);
+</script>
+</head>
+<body>
+
+<!-- Proyecto conceptual: club, jugadores y datos de contacto son ficticios -->
+<div class="aviso">
+  Proyecto conceptual de <a href="../index.html">Giuliano Filomeni</a> — la marca, los precios y los datos de contacto son ficticios.
+  Las fotos son de archivo libre: <a href="#creditos">ver créditos</a>.
+</div>
+
+<a class="skip" href="#main">Saltar al contenido</a>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ===================== PORTADA ===================== -->
+<div class="cover" data-cover aria-hidden="true">
+  <div class="cover-in">
+    <p class="cover-mark">FA<i>S</i>E</p>
+    <p class="cover-clock"><span data-cover-count>00</span>′ · Alto rendimiento para rugby</p>
+  </div>
+  <span class="cover-bar" data-cover-bar></span>
+</div>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav" data-nav>
+  <div class="shell nav-in">
+    <a class="brand" href="#top" aria-label="FASE, inicio">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path class="slash" d="M9 26 L18 6 h6 L15 26 Z" fill="#e01b24"/>
+        <path d="M4 19 h10 l-1.7 3.4 H2.3 Z" fill="#f2efe9"/>
+      </svg>
+      <span>Fase</span>
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#torneos">Torneos</a>
+      <a href="#filosofia">Método</a>
+      <a href="#puestos">Tu puesto</a>
+      <a href="#app">La app</a>
+      <a href="#planes">Planes</a>
+    </nav>
+    <a class="btn btn-sm" href="app/">
+      Abrir la app
+      <svg class="btn-ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+    </a>
+    <button class="burger" type="button" data-burger aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+      <i></i><i></i><i></i>
+    </button>
+    <span class="nav-prog" data-prog aria-hidden="true"></span>
+  </div>
+  <div class="drawer" id="menu" data-drawer hidden>
+    <a href="#torneos">Torneos</a>
+    <a href="#filosofia">Método</a>
+    <a href="#puestos">Tu puesto</a>
+    <a href="#app">La app</a>
+    <a href="#planes">Planes</a>
+    <a href="app/">Abrir la app</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top" data-hero>
+  <div class="hero-media" aria-hidden="true" data-parallax>
+    <img src="assets/hero-1280.webp"
+         srcset="assets/hero-820.webp 820w, assets/hero-1280.webp 1280w, assets/hero-2000.webp 2000w"
+         sizes="100vw" width="2000" height="1125" alt="" decoding="async" fetchpriority="high"
+         style="background-image:url(&quot;data:image/webp;base64,UklGRv4AAABXRUJQVlA4IPIAAADQBQCdASogABIAPu1grVAppSQisBgIATAdiWUAxPk7oLYJp04oGmHccchXKwNkBtEgYcqELGZAAP7ZWOfsl1BbjxR7kKWcsZzq7I5CGvDgB9nnAPhXy0RAUG8cVOdGukmPwA/CqkrrVKuD9lZkQBOD8PD/S3wS4wNUBTgh2UOxGV9Vf5t7xBXx8NhgB08fTInkjWrRHwg6uqSI9WV2CwkvJpkDOhy4pJTQlMGjKQD2fBljapiVffD98tS6UqdF0YBkYX1QLUfrKVNUaLIbL6R2AX0QSDJDJwDRqBk3ni7zOiFo+dqnZM91ADPQGoPT2gAAAA==&quot;);background-size:cover">
+    <div class="field-lines"></div>
+  </div>
+
+  <div class="shell hero-in">
+    <p class="eyebrow">Preparación física para rugby · Córdoba y Buenos Aires</p>
+
+    <h1 class="display">
+      <span class="l"><span style="--d:60ms">El partido</span></span>
+      <span class="l"><span style="--d:140ms">se gana en el</span></span>
+      <span class="l"><span style="--d:220ms"><em>minuto 65.</em></span></span>
+    </h1>
+
+    <div class="hero-grid">
+      <div>
+        <p class="lede" data-reveal="up" style="--d:400ms">
+          Cuando el scrum deja de empujar con técnica y empieza a empujar con lo que te queda.
+          Cuando el tackle llega medio segundo tarde y el try ya pasó. Ese minuto no se improvisa
+          en el vestuario: se construye doce semanas antes, con carga medida y transferencia real a la cancha.
+        </p>
+        <div class="hero-actions" data-reveal="up" style="--d:520ms">
+          <a class="btn" href="#planes">
+            Empezá tu bloque
+            <svg class="btn-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#app">Ver la app</a>
+        </div>
+      </div>
+
+      <div class="score" data-reveal="left" style="--d:600ms">
+        <div class="score-row"><b class="num" data-count="80" data-suffix="′">0</b><span>minutos que hay<br>que sostener</span></div>
+        <div class="score-row"><b class="num" data-count="12">0</b><span>semanas<br>por bloque</span></div>
+        <div class="score-row"><b class="num" data-count="240" data-prefix="+">0</b><span>jugadores<br>en el sistema</span></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="scroll-cue" aria-hidden="true"><i></i> Bajá</p>
+</section>
+
+<!-- ===================== TICKER ===================== -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" data-ticker>
+    <span>Fuerza máxima</span><span>Potencia</span><span>Transferencia a cancha</span>
+    <span>Scrum</span><span>Ruck</span><span>Line</span><span>Contacto</span>
+    <span>Aceleración 0–10 m</span><span>Cambio de dirección</span><span>Cadena posterior</span>
+  </div>
+</div>
+
+<!-- ===================== TORNEOS ===================== -->
+<section class="section torneos" id="torneos">
+  <div class="shell">
+    <div class="filo-head">
+      <div>
+        <p class="eyebrow" data-reveal="up">Dónde se juega</p>
+        <h2 class="display" data-reveal="cut" style="--d:80ms">Sábado a sábado,<br>de marzo<br>a octubre.</h2>
+      </div>
+      <p class="lede" data-reveal="up" style="--d:220ms">
+        Entrenamos jugadores amateurs: gente que labura de lunes a viernes, entrena dos noches
+        en el club y el sábado juega en serio. El plan tiene que entrar en esa semana, no en
+        la de un profesional.
+      </p>
+    </div>
+
+    <div class="torneo-grid">
+      <article class="torneo" data-reveal="up">
+        <figure class="ph ph-4x3">
+          <img src="assets/tala-700.webp" srcset="assets/tala-700.webp 700w, assets/tala-1100.webp 1100w"
+               sizes="(max-width:760px) 92vw, 34vw" width="1100" height="688" loading="lazy" decoding="async"
+               alt="Cancha de un club de rugby de Córdoba al atardecer, con los postes y las torres de luz recortados contra el cielo.">
+        </figure>
+        <p class="eyebrow">Unión Cordobesa</p>
+        <h3 class="display">Top 10<br>de Córdoba</h3>
+        <p>Canchas duras en marzo, pesadas en julio. Viajes cortos pero semanas largas:
+        el plan de fuerza se acomoda alrededor de los dos entrenamientos de club, no al revés.</p>
+        <ul class="marks">
+          <li>Bloque con dos sesiones de gimnasio semanales</li>
+          <li>Trabajo de scrum en piso blando y en piso duro</li>
+        </ul>
+      </article>
+
+      <article class="torneo" data-reveal="up" style="--d:110ms">
+        <figure class="ph ph-4x3">
+          <img src="assets/casi-560.webp" srcset="assets/casi-560.webp 560w, assets/casi-900.webp 900w"
+               sizes="(max-width:760px) 92vw, 34vw" width="900" height="675" loading="lazy" decoding="async"
+               alt="Tribuna histórica de hormigón de un club de rugby del Gran Buenos Aires, vista desde el borde de la cancha.">
+        </figure>
+        <p class="eyebrow">URBA</p>
+        <h3 class="display">Top 14<br>de Buenos Aires</h3>
+        <p>Más fechas, más contacto y planteles profundos: el que no llega entero a septiembre
+        pierde el puesto. Acá la resistencia a la fuerza no es un extra, es la competencia.</p>
+        <ul class="marks">
+          <li>Control de carga aguda contra crónica todas las semanas</li>
+          <li>Descarga programada antes de los partidos bisagra</li>
+        </ul>
+      </article>
+
+      <article class="torneo" data-reveal="up" style="--d:220ms">
+        <figure class="ph ph-4x3">
+          <img src="assets/tablada-560.webp" srcset="assets/tablada-560.webp 560w, assets/tablada-900.webp 900w"
+               sizes="(max-width:760px) 92vw, 34vw" width="900" height="675" loading="lazy" decoding="async"
+               alt="Partido de rugby entre dos clubes en una cancha de pueblo, con la tribuna casi vacía detrás.">
+        </figure>
+        <p class="eyebrow">Interior y Nacional de Clubes</p>
+        <h3 class="display">Y el<br>micro<br>de las 5 AM</h3>
+        <p>Ocho horas de viaje, jugar, y ocho de vuelta. Lo que se entrena no es solo el partido:
+        es llegar a jugarlo después de una noche sentado.</p>
+        <ul class="marks">
+          <li>Protocolo de movilidad y activación para el día del viaje</li>
+          <li>Reingesta y sueño de la semana post-viaje</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FILOSOFÍA ===================== -->
+<section class="section filo" id="filosofia">
+  <div class="shell">
+    <div class="filo-head">
+      <div>
+        <p class="eyebrow" data-reveal="up">El método</p>
+        <h2 class="display" data-reveal="cut" style="--d:80ms">No entrenamos<br>músculos.<br>Entrenamos <em>fases</em>.</h2>
+      </div>
+      <p class="lede" data-reveal="up" style="--d:220ms">
+        El rugby no es un deporte de repeticiones parejas: es un deporte de picos.
+        Empujás, caés, te levantás, esprintás, chocás. Y otra vez. El gimnasio tiene que
+        prepararte para <strong>esa</strong> secuencia, no para verse bien en el espejo.
+      </p>
+    </div>
+
+    <div class="principios">
+      <article class="principio" data-reveal="up">
+        <span class="n">01</span>
+        <h3 class="display">Fuerza que<br>se traduce</h3>
+        <p>Un banco de 140 kg no gana un ruck. Cada bloque de fuerza cierra con un ejercicio de
+        transferencia en el mismo día: empuje horizontal contra resistencia, salida con trineo,
+        levantada desde el piso en posición de contacto. La fuerza se aprende en la barra
+        y se cobra en la cancha.</p>
+        <figure class="ph ph-4x3 principio-ph">
+          <img src="assets/scrum-560.webp" srcset="assets/scrum-560.webp 560w, assets/scrum-900.webp 900w"
+               sizes="(max-width:1000px) 92vw, 28vw" width="900" height="675" loading="lazy" decoding="async"
+               alt="Scrum formado sobre una cancha gastada: los dos packs empujan y el medio scrum espera la salida de la pelota.">
+        </figure>
+      </article>
+
+      <article class="principio" data-reveal="up" style="--d:90ms">
+        <span class="n">02</span>
+        <h3 class="display">El minuto 65<br>se entrena<br>en enero</h3>
+        <p>La resistencia a la fuerza es una cualidad programada, no una cuestión de carácter.
+        Series largas con carga media en pretemporada, densidad creciente en el bloque de
+        conversión y realización antes del primer partido. Para el cierre del torneo, el tercer
+        tiempo del partido ya lo tenés entrenado.</p>
+      </article>
+
+      <article class="principio" data-reveal="up" style="--d:180ms">
+        <span class="n">03</span>
+        <h3 class="display">Tu puesto<br>no es un<br>detalle</h3>
+        <p>Un pilar necesita rigidez de tronco, empuje desde el piso y cuello. Un wing necesita
+        acelerar tres veces en veinte segundos y frenar entero. Un apertura necesita rotar bajo
+        fatiga sin perder el pie. Tres rutinas distintas, un mismo método: la plantilla se ajusta
+        al puesto, no al revés.</p>
+        <figure class="ph ph-3x4 principio-ph">
+          <img src="assets/contacto-480.webp" srcset="assets/contacto-480.webp 480w, assets/contacto-760.webp 760w"
+               sizes="(max-width:1000px) 92vw, 26vw" width="760" height="1013" loading="lazy" decoding="async"
+               alt="Dos jugadores trabados hombro con hombro al inicio de un maul, con la cara apretada contra el hombro del rival.">
+        </figure>
+      </article>
+
+      <article class="principio" data-reveal="up" style="--d:270ms">
+        <span class="n">04</span>
+        <h3 class="display">Lo que no<br>se mide,<br>se supone</h3>
+        <p>Tonelaje semanal, RPE por sesión, carga aguda contra crónica, velocidad en la barra
+        cuando hace falta. No para llenar una planilla: para saber cuándo te tenemos que frenar
+        una semana antes de que te lesiones.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== QUIEBRE A SANGRE ===================== -->
+<section class="quiebre" aria-labelledby="q-cita">
+  <figure class="ph quiebre-ph">
+    <img src="assets/quiebre-1100.webp" srcset="assets/quiebre-1100.webp 1100w, assets/quiebre-1800.webp 1800w"
+         sizes="100vw" width="1800" height="771" loading="lazy" decoding="async"
+         alt="Maul en una cancha de tierra de club: un equipo de rojo empuja contra otro de blanco mientras el resto llega a sostener.">
+  </figure>
+  <div class="shell quiebre-in">
+    <blockquote id="q-cita">
+      <p class="display">A los 65 nadie<br>piensa en la<br>técnica. Sale lo<br>que entrenaste.</p>
+      <footer>Y lo que entrenaste, a esa altura, es lo único que queda.</footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ===================== PUESTOS (interactiva) ===================== -->
+<section class="section puestos" id="puestos">
+  <div class="shell">
+    <div class="dentro-head">
+      <p class="eyebrow" data-reveal="up">Tu puesto</p>
+      <h2 class="display" data-reveal="cut" style="--d:80ms">Elegí dónde<br>jugás.</h2>
+      <p class="lede" style="margin-top:1.2rem" data-reveal="up">
+        No es lo mismo empujar ocho scrums que correr cuatro sprints máximos.
+        Tocá tu puesto y mirá qué cambia en el plan.
+      </p>
+    </div>
+
+    <div class="pu-wrap" data-reveal="up">
+      <div class="pu-tabs" role="tablist" aria-label="Puestos">
+        <button class="pu-tab" role="tab" id="t-primera" aria-controls="p-primera" aria-selected="true" data-puesto="primera">Primera línea</button>
+        <button class="pu-tab" role="tab" id="t-segunda" aria-controls="p-segunda" aria-selected="false" tabindex="-1" data-puesto="segunda">Segunda y tercera</button>
+        <button class="pu-tab" role="tab" id="t-medios"  aria-controls="p-medios"  aria-selected="false" tabindex="-1" data-puesto="medios">Medios</button>
+        <button class="pu-tab" role="tab" id="t-backs"   aria-controls="p-backs"   aria-selected="false" tabindex="-1" data-puesto="backs">Wings y fullback</button>
+      </div>
+
+      <div class="pu-panels">
+        <!-- PRIMERA LÍNEA -->
+        <div class="pu-panel on" role="tabpanel" id="p-primera" aria-labelledby="t-primera" tabindex="0">
+          <figure class="ph pu-ph">
+            <img src="assets/fuerza-560.webp" srcset="assets/fuerza-560.webp 560w, assets/fuerza-900.webp 900w"
+                 sizes="(max-width:900px) 92vw, 42vw" width="900" height="675" loading="lazy" decoding="async"
+                 alt="Maul cerrado visto de costado: la primera línea empuja agachada mientras el resto del pack sostiene por detrás.">
+          </figure>
+          <div class="pu-body">
+            <p class="eyebrow">Pilar · hooker</p>
+            <h3 class="display">Empujar sin<br>perder la forma</h3>
+            <p>La pelea es isométrica y dura segundos, pero se repite treinta veces. Lo que se
+            rompe primero no es la fuerza: es la posición. El bloque prioriza rigidez de tronco,
+            empuje desde el piso y una progresión de cuello que empieza antes de la pretemporada.</p>
+            <div class="bars">
+              <div class="bar"><span>Fuerza isométrica de empuje</span><i style="--w:96%"></i></div>
+              <div class="bar"><span>Resistencia a la fuerza</span><i style="--w:84%"></i></div>
+              <div class="bar"><span>Aceleración 0–10 m</span><i style="--w:42%"></i></div>
+              <div class="bar"><span>Volumen de carrera</span><i style="--w:30%"></i></div>
+            </div>
+            <p class="note">Foco del bloque: sentadilla y peso muerto pesados, empuje de trineo a altura de scrum, isométricos de cuello en seis semanas.</p>
+          </div>
+        </div>
+
+        <!-- SEGUNDA Y TERCERA -->
+        <div class="pu-panel" role="tabpanel" id="p-segunda" aria-labelledby="t-segunda" tabindex="0" hidden>
+          <figure class="ph pu-ph">
+            <img src="assets/ruck-700.webp" srcset="assets/ruck-700.webp 700w, assets/ruck-1100.webp 1100w"
+                 sizes="(max-width:900px) 92vw, 42vw" width="1100" height="688" loading="lazy" decoding="async"
+                 alt="Ruck disputado en mitad de cancha: varios jugadores llegan al cruce mientras uno protege la pelota en el piso.">
+          </figure>
+          <div class="pu-body">
+            <p class="eyebrow">Segunda línea · ala · octavo</p>
+            <h3 class="display">Los que llegan<br>a todas</h3>
+            <p>Salto en el line, empuje en el scrum, carrera de apoyo y tackle. El puesto que
+            más metros hace con contacto encima. Pedimos potencia de cadera, capacidad de repetir
+            esfuerzos y una cadena posterior que aguante el volumen sin dar señales.</p>
+            <div class="bars">
+              <div class="bar"><span>Potencia de tren inferior</span><i style="--w:90%"></i></div>
+              <div class="bar"><span>Esfuerzos de alta intensidad repetidos</span><i style="--w:92%"></i></div>
+              <div class="bar"><span>Salto vertical con asistencia</span><i style="--w:78%"></i></div>
+              <div class="bar"><span>Volumen de carrera</span><i style="--w:72%"></i></div>
+            </div>
+            <p class="note">Foco del bloque: contraste sentadilla + salto, nórdico excéntrico todas las semanas, circuitos de ruck con carga.</p>
+          </div>
+        </div>
+
+        <!-- MEDIOS -->
+        <div class="pu-panel" role="tabpanel" id="p-medios" aria-labelledby="t-medios" tabindex="0" hidden>
+          <figure class="ph pu-ph">
+            <img src="assets/corrillo-560.webp" srcset="assets/corrillo-560.webp 560w, assets/corrillo-900.webp 900w"
+                 sizes="(max-width:900px) 92vw, 42vw" width="900" height="675" loading="lazy" decoding="async"
+                 alt="Equipo reunido en círculo en el medio de la cancha antes de reanudar el juego.">
+          </figure>
+          <div class="pu-body">
+            <p class="eyebrow">Medio scrum · apertura</p>
+            <h3 class="display">Decidir bien<br>con pulsaciones<br>a 180</h3>
+            <p>El trabajo físico acá está al servicio de la cabeza: si llegás fundido, la decisión
+            sale tarde y el pie sale corto. Entrenamos capacidad aeróbica de base, rotación de
+            tronco bajo fatiga y un patrón de patada que no se deforma en el segundo tiempo.</p>
+            <div class="bars">
+              <div class="bar"><span>Capacidad aeróbica de base</span><i style="--w:88%"></i></div>
+              <div class="bar"><span>Rotación de tronco bajo fatiga</span><i style="--w:84%"></i></div>
+              <div class="bar"><span>Cambio de dirección</span><i style="--w:80%"></i></div>
+              <div class="bar"><span>Fuerza máxima absoluta</span><i style="--w:52%"></i></div>
+            </div>
+            <p class="note">Foco del bloque: fuerza en rangos cortos, anti-rotación de core, series de patada con fatiga controlada al final de la sesión.</p>
+          </div>
+        </div>
+
+        <!-- BACKS -->
+        <div class="pu-panel" role="tabpanel" id="p-backs" aria-labelledby="t-backs" tabindex="0" hidden>
+          <figure class="ph pu-ph">
+            <img src="assets/club-700.webp" srcset="assets/club-700.webp 700w, assets/club-1100.webp 1100w"
+                 sizes="(max-width:900px) 92vw, 42vw" width="1100" height="688" loading="lazy" decoding="async"
+                 alt="Charla de equipo al costado de la cancha después del partido, con chicos del club alrededor.">
+          </figure>
+          <div class="pu-body">
+            <p class="eyebrow">Wing · centro · fullback</p>
+            <h3 class="display">Tres sprints<br>en veinte<br>segundos</h3>
+            <p>Acelerás, frenás entero, girás y volvés a acelerar. La lesión típica no aparece
+            corriendo: aparece frenando. Por eso el bloque carga tanto la parte excéntrica como
+            la velocidad máxima, y la pliometría se hace descansado, nunca al final de todo.</p>
+            <div class="bars">
+              <div class="bar"><span>Aceleración 0–10 m</span><i style="--w:96%"></i></div>
+              <div class="bar"><span>Velocidad máxima</span><i style="--w:92%"></i></div>
+              <div class="bar"><span>Freno excéntrico</span><i style="--w:88%"></i></div>
+              <div class="bar"><span>Fuerza isométrica de empuje</span><i style="--w:44%"></i></div>
+            </div>
+            <p class="note">Foco del bloque: sprints con salida en 10–20–30 m, nórdico y curl excéntrico, pliometría corta al principio de la sesión.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LA APP ===================== -->
+<section class="section app-sec" id="app">
+  <div class="shell">
+    <div class="app-head">
+      <div>
+        <p class="eyebrow" data-reveal="up">El portal del jugador</p>
+        <h2 class="display" data-reveal="cut" style="--d:80ms">No es un PDF<br>por WhatsApp.<br>Es una <em>app</em>.</h2>
+        <p class="lede" style="margin-top:1.4rem" data-reveal="up">
+          Se instala en el celular y abre sin navegador. Adentro está tu semana cargada,
+          la ingesta del día y la carga pre-partido del sábado. Funciona sin señal:
+          en el gimnasio del club, el plan lo tenés igual.
+        </p>
+        <ul class="marks marks-lg" data-reveal="up" style="--d:120ms">
+          <li>Sesión del día con series, porcentajes y RIR</li>
+          <li>Macros y comidas cargadas, con el cierre del día a la vista</li>
+          <li>Cronograma de carga energética hora por hora</li>
+          <li>Tapones, recuperación y vuelta de lesión</li>
+        </ul>
+        <div class="hero-actions" data-reveal="up" style="--d:200ms">
+          <a class="btn" href="app/">
+            Abrir la app
+            <svg class="btn-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#planes">Ver planes</a>
+        </div>
+        <p class="note" data-reveal="up" style="--d:260ms">
+          Demo abierta, con datos de ejemplo. En el celular, «Agregar a pantalla de inicio».
+        </p>
+      </div>
+
+      <!-- Marco de celular: la app se muestra como app, no como sección del sitio -->
+      <div class="phone" data-reveal="left" style="--d:160ms" aria-hidden="true">
+        <div class="phone-body">
+          <span class="phone-notch"></span>
+          <div class="phone-screen">
+            <div class="ps-top"><b>Hoy</b><span class="tag tag-red"><span class="dot"></span>Sem 7/12</span></div>
+
+            <div class="ps-card">
+              <p class="ps-k">Sesión de hoy</p>
+              <p class="ps-v">Fuerza + Potencia <small>72′</small></p>
+              <p class="ps-s">Martes · Tren inferior</p>
+            </div>
+
+            <div class="ps-row"><b>Sentadilla trasera</b><i>5×3</i><i class="k">85%</i></div>
+            <div class="ps-row"><b>Salto al cajón</b><i>5×3</i><i class="k">60 cm</i></div>
+            <div class="ps-row"><b>Empuje de trineo 15 m</b><i>6 s.</i><i class="k">+60 kg</i></div>
+
+            <div class="ps-macros">
+              <div class="ps-m"><span>Proteína</span><i style="--w:86%"></i></div>
+              <div class="ps-m c"><span>Carbos</span><i style="--w:77%"></i></div>
+              <div class="ps-m g"><span>Grasas</span><i style="--w:79%"></i></div>
+            </div>
+
+            <div class="ps-tabs"><i class="on"></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EL BLOQUE ===================== -->
+<section class="section bloque" id="bloque">
+  <!-- Cancha de club al atardecer: le da fondo a la sección más plana de la
+       página sin robarle protagonismo a las cuatro fases. -->
+  <figure class="ph bloque-ph" aria-hidden="true">
+    <img src="assets/atardecer-1100.webp" srcset="assets/atardecer-1100.webp 1100w, assets/atardecer-1800.webp 1800w"
+         sizes="100vw" width="1800" height="771" loading="lazy" decoding="async" alt="">
+  </figure>
+  <div class="shell">
+    <p class="eyebrow" data-reveal="up">El bloque de 12 semanas</p>
+    <h2 class="display" data-reveal="cut" style="--d:80ms">De la base<br>al sábado.</h2>
+
+    <div class="fases">
+      <article class="fase" data-reveal="up">
+        <p class="wk">Semana 1–3</p>
+        <h3 class="display">Acumulación</h3>
+        <p>Volumen alto, carga moderada. Tejido, tendón y patrón. Acá se construye el techo que vas a usar en junio.</p>
+        <span class="ghost" aria-hidden="true">01</span>
+      </article>
+      <article class="fase" data-reveal="up" style="--d:90ms">
+        <p class="wk">Semana 4–6</p>
+        <h3 class="display">Intensificación</h3>
+        <p>Sube el porcentaje, baja el volumen. Fuerza máxima en los tres patrones: empuje, tracción y bisagra de cadera.</p>
+        <span class="ghost" aria-hidden="true">02</span>
+      </article>
+      <article class="fase" data-reveal="up" style="--d:180ms">
+        <p class="wk">Semana 7–9</p>
+        <h3 class="display">Conversión</h3>
+        <p>La fuerza se vuelve velocidad. Pliometría, trineo y contactos controlados. Cada kilo empieza a moverse rápido.</p>
+        <span class="ghost" aria-hidden="true">03</span>
+      </article>
+      <article class="fase" data-reveal="up" style="--d:270ms">
+        <p class="wk">Semana 10–12</p>
+        <h3 class="display">Competencia</h3>
+        <p>Dosis mínima eficaz. Mantener sin acumular fatiga. El gimnasio pasa a segundo plano; la cancha manda.</p>
+        <span class="ghost" aria-hidden="true">04</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRADICIÓN (franja) ===================== -->
+<section class="trad" aria-labelledby="trad-h">
+  <div class="shell trad-in">
+    <figure class="ph trad-ph" data-reveal="up">
+      <img src="assets/historia-700.webp" srcset="assets/historia-700.webp 700w, assets/historia-1100.webp 1100w"
+           sizes="(max-width:900px) 92vw, 46vw" width="1100" height="688" loading="lazy" decoding="async"
+           alt="Foto de archivo de un plantel de rugby argentino de principios del siglo XX, posando con camisetas a rayas en la puerta del club.">
+      <figcaption>Plantel de un club argentino, 1918. Archivo de dominio público.</figcaption>
+    </figure>
+    <div>
+      <p class="eyebrow" data-reveal="up">Cien años después</p>
+      <h2 class="display" id="trad-h" data-reveal="cut" style="--d:80ms">El deporte<br>es el mismo.<br>El cuerpo,<br>no.</h2>
+      <p class="lede" style="margin-top:1.2rem" data-reveal="up">
+        Se juega con las mismas reglas y la misma camiseta a rayas. Pero el contacto de hoy
+        pega más fuerte, la temporada dura más y la mayoría de los que juegan tiene un trabajo
+        de ocho horas antes de entrenar. Preparar el cuerpo para eso no es un lujo de
+        profesional: es lo que te deja seguir jugando a los 35.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PLANES ===================== -->
+<section class="section" id="planes">
+  <div class="shell">
+    <p class="eyebrow" data-reveal="up">Planes</p>
+    <h2 class="display" data-reveal="cut" style="--d:80ms">Elegí tu carga.</h2>
+
+    <div class="planes">
+      <article class="plan" data-reveal="up">
+        <p class="eyebrow">Individual</p>
+        <h3 class="display">Esencial</h3>
+        <p class="price">$38.000<small>por mes · ARS</small></p>
+        <ul>
+          <li>Bloque de 12 semanas según tu puesto</li>
+          <li>La app con la sesión del día</li>
+          <li>Biblioteca de técnica en video</li>
+          <li>Ajuste mensual del plan</li>
+        </ul>
+        <a class="btn btn-ghost" href="#contacto">Empezar</a>
+      </article>
+
+      <article class="plan hot" data-reveal="up" style="--d:110ms">
+        <p class="eyebrow">El más elegido</p>
+        <h3 class="display">Competición</h3>
+        <p class="price">$62.000<small>por mes · ARS</small></p>
+        <ul>
+          <li>Todo lo de Esencial</li>
+          <li>Módulo de nutrición con ingesta diaria</li>
+          <li>Estrategia de carga pre-partido semanal</li>
+          <li>Protocolo de suplementación personalizado</li>
+          <li>Revisión de carga cada 7 días</li>
+          <li>Consulta directa por chat</li>
+        </ul>
+        <a class="btn" href="#contacto">
+          Empezar
+          <svg class="btn-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="plan" data-reveal="up" style="--d:220ms">
+        <p class="eyebrow">Para clubes</p>
+        <h3 class="display">Plantel</h3>
+        <p class="price">A medida<small>desde 18 jugadores</small></p>
+        <ul>
+          <li>Planificación por línea y por puesto</li>
+          <li>Panel del preparador con todo el plantel</li>
+          <li>Semáforo de carga y alertas de riesgo</li>
+          <li>Visita presencial mensual</li>
+        </ul>
+        <a class="btn btn-ghost" href="#contacto">Hablemos</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PREGUNTAS ===================== -->
+<section class="section faq" id="faq">
+  <div class="shell faq-in">
+    <div>
+      <p class="eyebrow" data-reveal="up">Antes de empezar</p>
+      <h2 class="display" data-reveal="cut" style="--d:80ms">Lo que<br>siempre<br>preguntan.</h2>
+      <figure class="ph ph-4x3 faq-ph" data-reveal="up" style="--d:160ms">
+        <img src="assets/hinchada-560.webp" srcset="assets/hinchada-560.webp 560w, assets/hinchada-900.webp 900w"
+             sizes="(max-width:900px) 92vw, 30vw" width="900" height="675" loading="lazy" decoding="async"
+             alt="Gente mirando el partido desde una tribuna de cemento pintada, al costado de la cancha del club.">
+      </figure>
+    </div>
+
+    <div class="qs" data-reveal="up" style="--d:120ms">
+      <details>
+        <summary>Entreno en el gimnasio del club, no en uno equipado. ¿Sirve igual?</summary>
+        <p>Sí. El plan se arma con lo que tenés: si hay barra, discos y un rack, alcanza para
+        todo el bloque de fuerza. Si además hay trineo y cajones, mejor. Lo que no se negocia
+        es el ejercicio de transferencia, y ese casi siempre se puede hacer con el peso del cuerpo
+        y un compañero.</p>
+      </details>
+      <details>
+        <summary>¿Cómo se acomoda con los dos entrenamientos de club?</summary>
+        <p>El calendario del club manda. El bloque se cuelga alrededor: nunca fuerza pesada
+        la noche anterior a la cancha, nunca pliometría el día después de un partido.
+        Vos cargás tus días de club en la app y el plan se acomoda.</p>
+      </details>
+      <details>
+        <summary>Vengo de una lesión. ¿Puedo arrancar?</summary>
+        <p>Depende de en qué etapa estés, y esa decisión es del kinesiólogo o el médico que te
+        atiende, no nuestra. Lo que sí hacemos es tomar el alta que te dieron y construir la
+        vuelta desde ahí, con criterios de progresión claros y sin apurar la carga de contacto.</p>
+      </details>
+      <details>
+        <summary>¿Cuánto tardo en notar algo?</summary>
+        <p>Las primeras tres semanas se notan en la posición y en cómo terminás los entrenamientos,
+        no en el espejo. Los kilos en la barra se mueven alrededor de la sexta. El cambio en el
+        partido —terminar el segundo tiempo con piernas— es el del final del bloque.</p>
+      </details>
+      <details>
+        <summary>¿Y si me aburro o no me sirve?</summary>
+        <p>Lo cortás cuando quieras, sin permanencia. Si en cuatro semanas no movés más peso y no
+        terminás mejor los partidos, se corta y listo.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== CIERRE + FORMULARIO ===================== -->
+<section class="cierre" id="contacto">
+  <span class="big" aria-hidden="true">80′</span>
+  <div class="shell cierre-in">
+    <div>
+      <p class="eyebrow">Última jugada</p>
+      <h2 class="display">Ochenta minutos.<br>¿Llegás entero<br>al final?</h2>
+      <p class="cierre-p">
+        Dejá el número y armamos tu primer bloque en 48 horas. Sin permanencia:
+        si en cuatro semanas no movés más peso y no terminás mejor los partidos, lo cortás.
+      </p>
+    </div>
+
+    <form class="form" data-form novalidate>
+      <div class="f-row">
+        <label for="f-nom">Nombre</label>
+        <input id="f-nom" name="nombre" type="text" autocomplete="name" required placeholder="Tomás Medina">
+      </div>
+      <div class="f-row">
+        <label for="f-tel">Teléfono</label>
+        <input id="f-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" required placeholder="351 555 0000">
+      </div>
+      <div class="f-2">
+        <div class="f-row">
+          <label for="f-pue">Puesto</label>
+          <select id="f-pue" name="puesto">
+            <option>Primera línea</option>
+            <option>Segunda o tercera línea</option>
+            <option>Medio scrum o apertura</option>
+            <option>Centro, wing o fullback</option>
+            <option>Todavía no tengo puesto fijo</option>
+          </select>
+        </div>
+        <div class="f-row">
+          <label for="f-clu">Club</label>
+          <input id="f-clu" name="club" type="text" autocomplete="organization" placeholder="Opcional">
+        </div>
+      </div>
+      <button class="btn" type="submit">
+        Quiero mi bloque
+        <svg class="btn-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </button>
+      <p class="f-msg" data-msg role="status" aria-live="polite"></p>
+      <p class="f-note">Formulario de demostración: no envía datos a ningún lado.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="shell">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" aria-label="FASE, inicio">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <path class="slash" d="M9 26 L18 6 h6 L15 26 Z" fill="#e01b24"/>
+            <path d="M4 19 h10 l-1.7 3.4 H2.3 Z" fill="#f2efe9"/>
+          </svg>
+          <span>Fase</span>
+        </a>
+        <p class="foot-p">Preparación física para jugadores de rugby de clubes argentinos.
+        Córdoba y Buenos Aires.</p>
+      </div>
+
+      <nav aria-label="Secciones">
+        <p class="foot-t">El sitio</p>
+        <a href="#torneos">Torneos</a>
+        <a href="#filosofia">Método</a>
+        <a href="#puestos">Tu puesto</a>
+        <a href="#bloque">El bloque</a>
+        <a href="#planes">Planes</a>
+        <a href="#faq">Preguntas</a>
+      </nav>
+
+      <nav aria-label="La app">
+        <p class="foot-t">La app</p>
+        <a href="app/">Abrir el portal</a>
+        <a href="app/#gimnasio">Sesión de hoy</a>
+        <a href="app/#nutricion">Ingesta y carga</a>
+        <a href="app/#extras">Tapones y recuperación</a>
+      </nav>
+
+      <div>
+        <p class="foot-t">Proyecto</p>
+        <p class="foot-p">Diseño y desarrollo de <a href="../index.html">Giuliano Filomeni</a>.
+        Marca, precios y testimonios ficticios.</p>
+      </div>
+    </div>
+
+    <!-- Créditos: las licencias CC BY / BY-SA exigen autor, licencia y enlace. -->
+    <details class="creditos" id="creditos">
+      <summary>Créditos y licencias de las fotografías</summary>
+      <p class="cr-intro">
+        Fotografías de archivo libre, tomadas de Wikimedia Commons y tratadas en duotono para
+        este proyecto. Ninguna pertenece a FASE ni retrata a clientes: se usan como material de
+        ambientación en una pieza conceptual.
+      </p>
+      <ul class="cr-list">
+        <li><b>Portada y cierre</b> — «USO-AB · Maul», Clément Bucco-Lechat · <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license noopener" target="_blank">CC BY-SA 3.0</a> · <a href="https://commons.wikimedia.org/wiki/File:USO-AB_-_20131221_-_Maul.jpg" rel="noopener" target="_blank">original</a></li>
+        <li><b>Maul de club</b> — «Maul Rugby 1859», Assianir · <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener" target="_blank">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Maul_Rugby_1859.jpg" rel="noopener" target="_blank">original</a></li>
+        <li><b>Scrum</b> — «Scotland Ireland scrum», Conor Lawless · <a href="https://creativecommons.org/licenses/by/2.0/" rel="license noopener" target="_blank">CC BY 2.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Scotland_Ireland_scrum.jpg" rel="noopener" target="_blank">original</a></li>
+        <li><b>Contacto</b> — «USO-RCT · Début de maul», Clément Bucco-Lechat · <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license noopener" target="_blank">CC BY-SA 3.0</a> · <a href="https://commons.wikimedia.org/wiki/File:USO-RCT_-_20141003_-_D%C3%A9but_de_maul.jpg" rel="noopener" target="_blank">original</a></li>
+        <li><b>Corrillo y charla de equipo</b> — Seven de Punta del Este 2017, NaBUru38 · <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener" target="_blank">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Seven_de_Punta_del_Este_2017_-_Partido_Uruguay_corrillo.jpg" rel="noopener" target="_blank">original</a></li>
+        <li><b>Partido de clubes</b> — «La Tablada – Carrasco Polo», NaBUru38 · <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener" target="_blank">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Seven_de_Punta_del_Este_2017_-_Partido_La_Tablada_Carrasco_Polo_02.jpg" rel="noopener" target="_blank">original</a></li>
+        <li><b>Cancha de club (Córdoba)</b> — «Instalaciones Tala Rugby Club», Jmmuguerza · <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener" target="_blank">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Instalaciones_Tala_Rugby_Club_09.jpg" rel="noopener" target="_blank">original</a></li>
+        <li><b>Tribuna (Buenos Aires)</b> — «CA San Isidro grandstand», Fernando Martello · <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener" target="_blank">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:CA_San_Isidro_grandstand.jpg" rel="noopener" target="_blank">original</a></li>
+        <li><b>Archivo 1918</b> — «CA San Isidro, rugby 1918», autor desconocido · dominio público · <a href="https://commons.wikimedia.org/wiki/File:Ca_san_isidro_rugby_1918.jpg" rel="noopener" target="_blank">original</a></li>
+        <li><b>Tribuna con público</b> — «Seven de Punta del Este 2017 · Público», NaBUru38 · <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener" target="_blank">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Seven_de_Punta_del_Este_2017_-_P%C3%BAblico_01.jpg" rel="noopener" target="_blank">original</a></li>
+        <li><b>Maul (primera línea)</b> — «2022 Super W Final maul», DFAT / Sarah Friend · <a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener" target="_blank">CC BY 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:2022_Super_W_Final_maul.jpg" rel="noopener" target="_blank">original</a></li>
+        <li><b>Ruck</b> — «Bond Rugby», Kerrie · <a href="https://creativecommons.org/licenses/by-sa/2.0/" rel="license noopener" target="_blank">CC BY-SA 2.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Bond_Rugby_(13373623165).jpg" rel="noopener" target="_blank">original</a></li>
+      </ul>
+    </details>
+
+    <div class="foot-in">
+      <small>FASE · Alto rendimiento para rugby · Córdoba, Argentina</small>
+      <small>Proyecto conceptual de <a href="../index.html">Giuliano Filomeni</a></small>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

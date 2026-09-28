@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barbería La Navaja — San Telmo, Buenos Aires</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0e0b09;
+    --bg-2:#15110e;
+    --bg-3:#1e1813;
+    --cream:#f2ebda;
+    --cream-2:#ddd2bc;
+    --cream-3:#8b7e68;
+    --accent:#b8763a;
+    --accent-2:#8f5623;
+    --gold:#c9a961;
+    --line:rgba(242,235,218,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;overflow-x:clip;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--cream-2);
+    line-height:1.55;
+    overflow-x:clip;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:700;color:var(--cream);}
+  em{font-style:italic;color:var(--accent);font-family:'Fraunces',serif;font-weight:600;}
+  a{color:inherit;text-decoration:none;}
+  img.foto{width:100%;height:100%;object-fit:cover;display:block;}
+
+  .placeholder{
+    background:var(--bg-3);
+    overflow:hidden;
+    border:1px solid var(--line);
+  }
+
+  header{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:1.4rem 6vw;
+    position:relative;
+    z-index:40;
+  }
+  header .marca{display:flex;align-items:center;gap:.7rem;}
+  .icono-navaja{color:var(--gold);flex-shrink:0;}
+  header .logo{font-family:'Fraunces',serif;font-weight:700;font-size:1.25rem;color:var(--cream);letter-spacing:.01em;}
+  header nav a{margin-left:2rem;font-size:.88rem;color:var(--cream-2);transition:color .2s ease;letter-spacing:.02em;}
+  header nav a:hover{color:var(--gold);}
+
+  .menu-toggle{display:none;}
+  .hamburger{
+    display:none;
+    width:34px;height:34px;
+    border:none;background:none;cursor:pointer;
+    flex-direction:column;justify-content:center;gap:5px;
+  }
+  .hamburger span{
+    display:block;width:100%;height:2px;background:var(--cream);border-radius:2px;
+    transition:transform .25s ease, opacity .25s ease;
+  }
+  .nav-mobile{display:none;}
+
+  /* HERO con mesh gradient */
+  .hero{
+    position:relative;
+    padding:3rem 6vw 7rem;
+    min-height:88svh;
+    display:flex;flex-direction:column;justify-content:center;
+    overflow:hidden;
+  }
+  .hero-mesh{
+    position:absolute;inset:-10%;z-index:0;
+    background:
+      radial-gradient(ellipse at 18% 22%, rgba(184,118,58,.4), transparent 55%),
+      radial-gradient(ellipse at 82% 28%, rgba(201,169,97,.28), transparent 50%),
+      radial-gradient(ellipse at 50% 95%, rgba(184,118,58,.22), transparent 60%);
+    filter:blur(80px) saturate(130%);
+    animation:meshDrift 22s ease-in-out infinite;
+    pointer-events:none;
+  }
+  @keyframes meshDrift{
+    0%,100%{transform:scale(1) rotate(0deg);}
+    50%{transform:scale(1.25) rotate(6deg);}
+  }
+  .hero-grain{
+    position:absolute;inset:0;z-index:1;opacity:.05;mix-blend-mode:overlay;pointer-events:none;
+    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%25" height="100%25" filter="url(%23n)"/></svg>');
+  }
+  .hero-inner{position:relative;z-index:2;max-width:640px;}
+  .hero-kicker{
+    display:flex;align-items:center;gap:.6rem;
+    font-size:.8rem;text-transform:uppercase;letter-spacing:.16em;
+    color:var(--gold);font-weight:600;margin-bottom:1.4rem;
+  }
+  .hero-kicker .linea{width:28px;height:1px;background:var(--gold);display:inline-block;}
+  .hero h1{
+    font-size:clamp(2.3rem,5vw,3.7rem);
+    line-height:1.08;
+    margin-bottom:1.4rem;
+    max-width:16ch;
+  }
+  .hero p.sub{font-size:1.08rem;max-width:44ch;margin-bottom:2.2rem;color:var(--cream-2);}
+  .hero-foot{display:flex;align-items:center;gap:1.6rem;flex-wrap:wrap;}
+  .hero-rating{font-size:.9rem;color:var(--cream-3);}
+  .hero-rating strong{color:var(--gold);font-family:'Fraunces',serif;}
+
+  .cta{
+    display:inline-block;
+    background:linear-gradient(180deg, #c98a4a 0%, var(--accent) 55%, var(--accent-2) 100%);
+    color:#1a0f06;
+    padding:.9rem 1.9rem;border-radius:6px;font-weight:700;font-size:.94rem;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.35),
+      inset 0 -2px 4px rgba(0,0,0,.2),
+      0 6px 0 #6b3f16,
+      0 10px 20px rgba(0,0,0,.45);
+    transition:transform .15s ease, box-shadow .15s ease;
+    border:none;cursor:pointer;
+  }
+  .cta:hover{
+    transform:translateY(-3px);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.4),
+      inset 0 -2px 4px rgba(0,0,0,.2),
+      0 9px 0 #6b3f16,
+      0 18px 28px rgba(0,0,0,.5);
+  }
+  .cta:active{
+    transform:translateY(4px);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.3),
+      inset 0 2px 4px rgba(0,0,0,.25),
+      0 2px 0 #6b3f16,
+      0 4px 10px rgba(0,0,0,.4);
+  }
+  .cta-ghost{
+    display:inline-block;padding:.85rem 1.6rem;border-radius:6px;
+    border:1px solid var(--line);color:var(--cream-2);font-size:.9rem;font-weight:600;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .cta-ghost:hover{border-color:var(--gold);color:var(--gold);}
+
+  section{padding:5rem 6vw;}
+
+  /* MARQUEE */
+  .marquee{
+    background:var(--bg-2);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:1.1rem 0;overflow:hidden;white-space:nowrap;
+  }
+  .marquee-track{
+    display:inline-block;
+    animation:marqueeScroll 26s linear infinite;
+  }
+  .marquee-track span{
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;
+    color:var(--cream-3);margin-right:2.2rem;
+  }
+  .marquee-track span em{color:var(--gold);font-style:italic;}
+  @keyframes marqueeScroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+
+  /* CONCEPTO */
+  .concepto{
+    background:var(--bg);
+    text-align:center;
+    padding-top:4.5rem;padding-bottom:4.5rem;
+  }
+  .concepto .regla{
+    width:40px;height:1px;background:var(--gold);margin:0 auto 2rem;
+  }
+  .concepto blockquote{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:500;
+    font-size:clamp(1.4rem,3vw,2.1rem);line-height:1.4;
+    max-width:34ch;margin:0 auto 1.4rem;color:var(--cream);
+  }
+  .concepto .autor{
+    font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--cream-3);
+  }
+
+  /* SOBRE */
+  .sobre{
+    display:grid;grid-template-columns:.85fr 1fr;gap:3.5rem;align-items:center;
+    background:var(--bg-2);
+  }
+  .marco-cuero{
+    position:relative;padding:14px;border-radius:6px;
+    background:linear-gradient(155deg,#4a3420,#2c1e11 60%,#3a2716);
+    box-shadow:
+      inset 0 0 0 2px #6b4a28,
+      inset 0 2px 4px rgba(255,255,255,.06),
+      inset 0 -3px 8px rgba(0,0,0,.5),
+      0 18px 32px rgba(0,0,0,.45);
+  }
+  .marco-cuero::before{
+    content:"";position:absolute;inset:6px;border:1px dashed rgba(242,235,218,.25);border-radius:3px;pointer-events:none;
+  }
+  .marco-cuero .img-block{height:340px;border-radius:2px;overflow:hidden;}
+  .sobre h2{font-size:1.9rem;margin-bottom:1.1rem;}
+  .sobre p{max-width:50ch;color:var(--cream-2);margin-bottom:1rem;}
+  .sobre .firma{
+    font-style:italic;font-family:'Fraunces',serif;font-size:1.15rem;margin-top:1.3rem;
+    display:inline-block;color:var(--gold);
+  }
+
+  /* SERVICIOS */
+  .servicios .kicker{
+    font-size:.8rem;text-transform:uppercase;letter-spacing:.14em;
+    color:var(--gold);font-weight:600;display:block;margin-bottom:.6rem;
+  }
+  .servicios h2{font-size:1.9rem;margin-bottom:.6rem;}
+  .servicios .intro{max-width:48ch;color:var(--cream-3);margin-bottom:2.8rem;}
+
+  .menu-tabs{display:flex;gap:2rem;border-bottom:1px solid var(--line);margin-bottom:2.6rem;}
+  .menu-tab{
+    background:none;border:none;cursor:pointer;
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.08rem;
+    color:var(--cream-3);padding:0 0 .9rem;position:relative;
+    transition:color .2s ease;
+  }
+  .menu-tab:hover{color:var(--cream);}
+  .menu-tab.active{color:var(--gold);}
+  .menu-tab::after{
+    content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
+    background:var(--gold);
+    transform:scaleX(0);transform-origin:left;
+    transition:transform .25s ease;
+  }
+  .menu-tab.active::after{transform:scaleX(1);}
+
+  .menu-panel{display:none;}
+  .menu-panel.active{display:block;animation:panelIn .35s ease;}
+  @keyframes panelIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+  .grid-servicios{display:grid;grid-template-columns:repeat(2,1fr);gap:1.3rem;}
+  .servicio-card{
+    position:relative;
+    background:var(--bg-3);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:1.6rem 1.5rem;
+    transform-style:preserve-3d;
+    transition:transform .25s ease, border-color .25s ease;
+    will-change:transform;
+  }
+  .servicio-card::before{
+    content:"";position:absolute;inset:0;border-radius:10px;
+    background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%), rgba(201,169,97,.16), transparent 60%);
+    opacity:0;transition:opacity .3s ease;pointer-events:none;
+  }
+  .servicio-card:hover{border-color:rgba(201,169,97,.4);}
+  .servicio-card:hover::before{opacity:1;}
+  .servicio-card.favorito{border-color:rgba(201,169,97,.55);padding-top:2.5rem;}
+  .servicio-numero{
+    font-family:'Fraunces',serif;font-style:italic;font-size:.85rem;color:var(--cream-3);
+    display:block;margin-bottom:.5rem;
+  }
+  .servicio-card h3{font-size:1.15rem;margin-bottom:.3rem;}
+  .servicio-desc{font-size:.87rem;color:var(--cream-3);margin-bottom:1rem;}
+  .servicio-precio{font-family:'Fraunces',serif;font-weight:700;color:var(--gold);font-size:1.15rem;}
+  .fav-tag{
+    position:absolute;top:1.3rem;right:1.3rem;
+    font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;
+    background:var(--accent);color:#1a0f06;font-weight:700;
+    padding:.2rem .5rem;border-radius:10px;
+  }
+
+  /* TESTIMONIOS: spotlight rotativo */
+  .testimonios{background:var(--bg-2);text-align:center;}
+  .testimonios h2{font-size:1.9rem;margin-bottom:3rem;}
+  .spotlight{
+    position:relative;max-width:56ch;margin:0 auto;min-height:180px;
+  }
+  .spotlight-quote{
+    position:absolute;inset:0;
+    opacity:0;transform:translateY(8px);
+    transition:opacity .6s ease, transform .6s ease;
+    pointer-events:none;
+  }
+  .spotlight-quote.active{
+    opacity:1;transform:translateY(0);position:relative;
+    pointer-events:auto;
+  }
+  .spotlight-quote .comilla{
+    font-family:'Fraunces',serif;font-size:2.6rem;color:var(--accent);
+    display:block;line-height:1;margin-bottom:.4rem;font-style:italic;
+  }
+  .spotlight-quote p{font-size:1.15rem;color:var(--cream);margin-bottom:1rem;line-height:1.5;}
+  .spotlight-quote span{font-size:.85rem;color:var(--cream-3);text-transform:uppercase;letter-spacing:.06em;}
+  .spotlight-dots{display:flex;justify-content:center;gap:.6rem;margin-top:2.4rem;}
+  .spotlight-dots .dot{
+    width:8px;height:8px;border-radius:50%;border:none;padding:0;
+    background:var(--line);cursor:pointer;transition:background .2s ease,transform .2s ease;
+  }
+  .spotlight-dots .dot.active{background:var(--gold);transform:scale(1.3);}
+
+  /* GALERIA */
+  .galeria{background:var(--bg-2);}
+  .galeria h2{font-size:1.9rem;margin-bottom:2rem;}
+  .grid-galeria{
+    display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:140px;gap:.8rem;
+  }
+  .grid-galeria .g1{grid-column:span 2;grid-row:span 2;}
+  .grid-galeria .placeholder{transition:transform .2s ease, box-shadow .2s ease;border-radius:6px;}
+  .grid-galeria .placeholder:hover{
+    transform:scale(1.03);
+    box-shadow:0 14px 26px rgba(0,0,0,.5);
+    z-index:2;
+  }
+
+  /* CONTACTO */
+  .contacto{
+    display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;
+  }
+  .contacto h2{font-size:1.9rem;margin-bottom:1rem;}
+  .contacto p{margin-bottom:.4rem;color:var(--cream-2);}
+  .contacto .cta{margin-top:1.2rem;}
+  .mapa-ph{height:280px;border-radius:8px;}
+
+  footer{
+    padding:2rem 6vw;text-align:center;font-size:.85rem;color:var(--cream-3);
+    border-top:1px solid var(--line);
+    display:flex;flex-direction:column;align-items:center;gap:.6rem;
+  }
+
+  @media(max-width:800px){
+    .hero-inner{max-width:100%;}
+    .sobre,.contacto{grid-template-columns:1fr;}
+    .grid-servicios{grid-template-columns:1fr;}
+    .lista-test{grid-template-columns:1fr;}
+    .grid-galeria{grid-template-columns:repeat(2,1fr);}
+
+    header nav{display:none;}
+    .hamburger{display:flex;}
+
+    .nav-mobile{
+      display:block;
+      position:absolute;
+      top:100%;left:0;right:0;
+      background:var(--bg-2);
+      border-bottom:1px solid var(--line);
+      box-shadow:0 12px 24px rgba(0,0,0,.4);
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .3s ease;
+      z-index:20;
+    }
+    #menu-toggle:checked ~ .nav-mobile,
+    .nav-mobile.is-open{max-height:240px;}
+    .nav-mobile a{
+      display:block;padding:1rem 6vw;border-bottom:1px solid var(--line);font-size:1rem;color:var(--cream-2);
+    }
+    header{position:relative;flex-wrap:wrap;}
+
+    #menu-toggle:checked ~ .hamburger span:nth-child(1),
+    .hamburger.is-active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    #menu-toggle:checked ~ .hamburger span:nth-child(2),
+    .hamburger.is-active span:nth-child(2){opacity:0;}
+    #menu-toggle:checked ~ .hamburger span:nth-child(3),
+    .hamburger.is-active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+    .whatsapp-fijo{
+      display:flex;
+      position:fixed;bottom:16px;right:16px;z-index:30;
+      width:56px;height:56px;border-radius:50%;
+      background:linear-gradient(180deg,#2fce6a,#22a558);
+      align-items:center;justify-content:center;
+      box-shadow:0 8px 18px rgba(0,0,0,.5);
+    }
+    .whatsapp-fijo svg{width:28px;height:28px;}
+    footer{padding-bottom:5.5rem;}
+  }
+  @media(min-width:801px){
+    .hamburger,.nav-mobile,.whatsapp-fijo{display:none !important;}
+  }
+
+  .reveal{
+    opacity:0;transform:translateY(28px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.visible{opacity:1;transform:translateY(0);}
+  .reveal-item{
+    opacity:0;transform:translateY(20px);
+    transition:opacity .55s ease, transform .55s ease;
+  }
+  .reveal-item.visible{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal,.reveal-item{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<!-- Aviso de proyecto conceptual: el negocio y las opiniones no son reales -->
+<div style="background:#161616;color:#f0ebe1;font:500 13px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;padding:.75rem 1.1rem;text-align:center;">
+  Proyecto conceptual de Giuliano Filomeni —
+  la barbería, las opiniones y los datos de contacto son ficticios.
+</div>
+
+
+<header>
+  <div class="marca">
+    <svg class="icono-navaja" width="30" height="30" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 42 L36 16"/>
+      <path d="M36 16 L52 24 L32 36 Z"/>
+      <path d="M10 42 L16 52"/>
+      <circle cx="12" cy="44" r="1.6" fill="currentColor" stroke="none"/>
+    </svg>
+    <div class="logo">Barbería La Navaja</div>
+  </div>
+  <nav>
+    <a href="#sobre">Nosotros</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#galeria">Galería</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <input type="checkbox" id="menu-toggle" class="menu-toggle">
+  <label for="menu-toggle" class="hamburger" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </label>
+  <nav class="nav-mobile">
+    <a href="#sobre">Nosotros</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#galeria">Galería</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-mesh"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-inner">
+    <span class="hero-kicker"><span class="linea"></span>San Telmo · Desde 2016</span>
+    <h1>Cortamos como se cortaba antes de que todo fuera <em>rápido</em>.</h1>
+    <p class="sub">Navaja, tijera y el tiempo justo para hacer las cosas bien. Turno por WhatsApp o pasás y esperás con un café mientras te toca.</p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.6rem;">
+      <a class="cta" href="https://wa.me/5493516655499?text=Hola%20Giuliano%2C%20vi%20la%20demo%20de%20Barber%C3%ADa%20La%20Navaja%20en%20tu%20portafolio." target="_blank">Sacá turno por WhatsApp</a>
+      <a class="cta-ghost" href="#servicios">Ver servicios</a>
+    </div>
+    <div class="hero-foot">
+      <span class="hero-rating"><strong>4,9</strong> ★ · reseñas de clientes de siempre</span>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>TIJERA <em>·</em> NAVAJA <em>·</em> BARBA <em>·</em> OFICIO <em>·</em> SAN TELMO <em>·</em></span>
+    <span>TIJERA <em>·</em> NAVAJA <em>·</em> BARBA <em>·</em> OFICIO <em>·</em> SAN TELMO <em>·</em></span>
+  </div>
+</div>
+
+<section class="concepto reveal">
+  <span class="regla"></span>
+  <blockquote>"Un buen corte no se nota enseguida. Se nota en dos semanas, cuando todavía tiene forma."</blockquote>
+  <span class="autor">Regla no escrita de la casa</span>
+</section>
+
+<section class="sobre reveal" id="sobre">
+  <div class="marco-cuero">
+    <div class="img-block placeholder"><img class="foto" src="https://images.pexels.com/photos/9992819/pexels-photo-9992819.jpeg?cs=tinysrgb&dpr=1&w=800" alt="Barbero perfilando la barba de un cliente"></div>
+  </div>
+  <div>
+    <h2>Un oficio que no se aprende en un curso de fin de semana</h2>
+    <p>Tomás afiló navajas cuatro años en una barbería de barrio en Barcelona antes de volver a Buenos Aires y abrir la suya. Acá no hay máquinas de última generación ni rituales inventados para la foto: hay tijera, navaja y el mismo cuidado de siempre.</p>
+    <p>Trabajamos con turno, pero si tenés que salir en veinte minutos, avisá — hacemos lo que se pueda con el tiempo que haya. Lo que no se negocia es el trabajo bien hecho.</p>
+    <span class="firma">— Tomás, barbero</span>
+  </div>
+</section>
+
+<section class="servicios reveal" id="servicios">
+  <span class="kicker">Servicios</span>
+  <h2>Lo que se hace acá adentro</h2>
+  <p class="intro">Precios de mostrador, sin sorpresas. Todo incluye la charla, si querés.</p>
+
+  <div class="menu-tabs" role="tablist">
+    <button type="button" class="menu-tab active" data-panel="panel-cortes" role="tab" aria-selected="true">Cortes</button>
+    <button type="button" class="menu-tab" data-panel="panel-barba" role="tab" aria-selected="false">Barba y afeitado</button>
+  </div>
+
+  <div class="menu-panels">
+    <div class="menu-panel active" id="panel-cortes">
+      <div class="grid-servicios">
+        <div class="servicio-card">
+          <span class="servicio-numero">01</span>
+          <h3>Corte clásico</h3>
+          <p class="servicio-desc">Tijera y máquina, lavado incluido</p>
+          <span class="servicio-precio">$9.500</span>
+        </div>
+        <div class="servicio-card favorito">
+          <span class="fav-tag">El de siempre</span>
+          <span class="servicio-numero">02</span>
+          <h3>Corte + barba</h3>
+          <p class="servicio-desc">El combo completo, sin apuro</p>
+          <span class="servicio-precio">$13.800</span>
+        </div>
+        <div class="servicio-card">
+          <span class="servicio-numero">03</span>
+          <h3>Corte niño</h3>
+          <p class="servicio-desc">Hasta 12 años</p>
+          <span class="servicio-precio">$7.000</span>
+        </div>
+        <div class="servicio-card">
+          <span class="servicio-numero">04</span>
+          <h3>Diseño y líneas</h3>
+          <p class="servicio-desc">A navaja, sobre corte ya hecho</p>
+          <span class="servicio-precio">$4.500</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-panel" id="panel-barba">
+      <div class="grid-servicios">
+        <div class="servicio-card favorito">
+          <span class="fav-tag">Clásico</span>
+          <span class="servicio-numero">01</span>
+          <h3>Afeitado a navaja</h3>
+          <p class="servicio-desc">Toalla caliente y espuma de brocha</p>
+          <span class="servicio-precio">$8.900</span>
+        </div>
+        <div class="servicio-card">
+          <span class="servicio-numero">02</span>
+          <h3>Perfilado de barba</h3>
+          <p class="servicio-desc">Tijera y navaja</p>
+          <span class="servicio-precio">$6.200</span>
+        </div>
+        <div class="servicio-card">
+          <span class="servicio-numero">03</span>
+          <h3>Tratamiento de barba</h3>
+          <p class="servicio-desc">Aceite y bálsamo</p>
+          <span class="servicio-precio">$5.000</span>
+        </div>
+        <div class="servicio-card">
+          <span class="servicio-numero">04</span>
+          <h3>Cejas</h3>
+          <p class="servicio-desc">Prolijado rápido</p>
+          <span class="servicio-precio">$2.800</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonios reveal">
+  <h2>Quienes ya pasaron por la silla</h2>
+  <div class="spotlight" id="spotlight-test">
+    <div class="spotlight-quote active" data-idx="0">
+      <span class="comilla">"</span>
+      <p>Vengo hace tres años y todavía me sorprende que se acuerde de cómo me gusta el corte sin preguntar.</p>
+      <span>Martín S.</span>
+    </div>
+    <div class="spotlight-quote" data-idx="1">
+      <span class="comilla">"</span>
+      <p>El afeitado a navaja es otra cosa. Salís con la cara nueva y media hora de paz.</p>
+      <span>Feña L.</span>
+    </div>
+    <div class="spotlight-quote" data-idx="2">
+      <span class="comilla">"</span>
+      <p>Es chico el local y a veces hay que esperar un rato, pero vale la pena cada vez.</p>
+      <span>Ramiro G.</span>
+    </div>
+  </div>
+  <div class="spotlight-dots" role="tablist" aria-label="Testimonios">
+    <button type="button" class="dot active" data-idx="0" aria-label="Testimonio de Martín"></button>
+    <button type="button" class="dot" data-idx="1" aria-label="Testimonio de Feña"></button>
+    <button type="button" class="dot" data-idx="2" aria-label="Testimonio de Ramiro"></button>
+  </div>
+</section>
+
+<section class="galeria reveal" id="galeria">
+  <h2>Un vistazo al local</h2>
+  <div class="grid-galeria">
+    <div class="placeholder g1 reveal-item"><img class="foto" src="https://images.pexels.com/photos/37764947/pexels-photo-37764947/free-photo-of-vintage-barber-shop-interior-with-classic-chairs.jpeg?cs=tinysrgb&dpr=1&w=800" alt="Interior vintage de la barbería con sillones clásicos"></div>
+    <div class="placeholder reveal-item"><img class="foto" src="https://images.pexels.com/photos/1319459/pexels-photo-1319459.jpeg?cs=tinysrgb&dpr=1&w=500" alt="Herramientas de barbero prolijamente ordenadas"></div>
+    <div class="placeholder reveal-item"><img class="foto" src="https://images.pexels.com/photos/7922651/pexels-photo-7922651.jpeg?cs=tinysrgb&dpr=1&w=500" alt="Poste tradicional de barbería"></div>
+    <div class="placeholder reveal-item"><img class="foto" src="https://images.pexels.com/photos/33448216/pexels-photo-33448216/free-photo-of-close-up-of-haircut-with-electric-clippers.jpeg?cs=tinysrgb&dpr=1&w=500" alt="Corte en proceso con máquina eléctrica"></div>
+    <div class="placeholder reveal-item"><img class="foto" src="https://images.pexels.com/photos/9430198/pexels-photo-9430198.jpeg?cs=tinysrgb&dpr=1&w=500" alt="Cliente esperando su turno leyendo el diario"></div>
+  </div>
+</section>
+
+<section class="contacto reveal" id="contacto">
+  <div>
+    <h2>Te esperamos</h2>
+    <p>Defensa 1350, San Telmo, CABA</p>
+    <p>Martes a sábado, 10 a 20hs. Domingo y lunes cerrado.</p>
+    <p>WhatsApp: +54 9 11 0000-0001</p>
+    <a class="cta" href="https://wa.me/5493516655499?text=Hola%20Giuliano%2C%20vi%20la%20demo%20de%20Barber%C3%ADa%20La%20Navaja%20en%20tu%20portafolio." target="_blank">Escribinos por WhatsApp</a>
+  </div>
+  <div class="mapa-ph placeholder">
+    <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+      <rect width="400" height="280" fill="#1e1813"/>
+      <g stroke="#3a2f24" stroke-width="6">
+        <line x1="0" y1="75" x2="400" y2="60"/>
+        <line x1="0" y1="170" x2="400" y2="185"/>
+        <line x1="95" y1="0" x2="75" y2="280"/>
+        <line x1="270" y1="0" x2="295" y2="280"/>
+      </g>
+      <g stroke="#2a2119" stroke-width="2">
+        <line x1="0" y1="122" x2="400" y2="125"/>
+        <line x1="180" y1="0" x2="185" y2="280"/>
+      </g>
+      <g transform="translate(180,120)">
+        <rect x="-5" y="-38" width="10" height="76" rx="5" fill="#f2ebda"/>
+        <path d="M -5 -38 a5 5 0 0 1 10 0 L 5 38 a5 5 0 0 1 -10 0 Z" fill="url(#stripes)"/>
+        <defs>
+          <linearGradient id="stripes" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#b8763a"/>
+            <stop offset="33%" stop-color="#f2ebda"/>
+            <stop offset="33%" stop-color="#8f5623"/>
+            <stop offset="66%" stop-color="#8f5623"/>
+            <stop offset="66%" stop-color="#f2ebda"/>
+            <stop offset="100%" stop-color="#c9a961"/>
+          </linearGradient>
+        </defs>
+      </g>
+      <text x="200" y="205" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#ddd2bc" font-weight="600">Defensa 1350</text>
+      <text x="200" y="222" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8b7e68">San Telmo, CABA</text>
+    </svg>
+  </div>
+</section>
+
+<footer>
+  <svg class="icono-navaja" width="24" height="24" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="opacity:.6;">
+    <path d="M10 42 L36 16"/>
+    <path d="M36 16 L52 24 L32 36 Z"/>
+    <path d="M10 42 L16 52"/>
+  </svg>
+  Barbería La Navaja — San Telmo, Buenos Aires
+</footer>
+
+<script>
+  function safe(fn, name){ try{ fn(); }catch(e){ console.warn('['+name+']', e); } }
+
+  safe(function initMobileNav(){
+    var cb = document.getElementById('menu-toggle');
+    var nav = document.querySelector('.nav-mobile');
+    var burger = document.querySelector('.hamburger');
+    if(!cb || !nav) return;
+    function sync(){
+      nav.classList.toggle('is-open', cb.checked);
+      if(burger) burger.classList.toggle('is-active', cb.checked);
+    }
+    cb.addEventListener('change', sync);
+    nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ cb.checked = false; sync(); });
+    });
+  }, 'initMobileNav');
+
+  safe(function initSpotlight(){
+    var wrap = document.getElementById('spotlight-test');
+    if(!wrap) return;
+    var quotes = wrap.querySelectorAll('.spotlight-quote');
+    var dots = document.querySelectorAll('.spotlight-dots .dot');
+    var idx = 0, timer;
+    function show(i){
+      idx = i;
+      quotes.forEach(function(q){ q.classList.toggle('active', +q.dataset.idx === i); });
+      dots.forEach(function(d){ d.classList.toggle('active', +d.dataset.idx === i); });
+    }
+    function next(){ show((idx + 1) % quotes.length); }
+    function restart(){ clearInterval(timer); timer = setInterval(next, 5000); }
+    dots.forEach(function(d){
+      d.addEventListener('click', function(){ show(+d.dataset.idx); restart(); });
+    });
+    restart();
+  }, 'initSpotlight');
+
+  (function(){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.01, rootMargin: '0px 0px -2% 0px' });
+
+    document.querySelectorAll('.reveal').forEach(function(section){ io.observe(section); });
+    document.querySelectorAll('.reveal-item').forEach(function(item, i){
+      item.style.transitionDelay = (i % 5) * 0.08 + 's';
+      io.observe(item);
+    });
+
+    setTimeout(function(){
+      document.querySelectorAll('.reveal:not(.visible), .reveal-item:not(.visible)').forEach(function(el){
+        if(el.getBoundingClientRect().top < window.innerHeight){ el.classList.add('visible'); }
+      });
+    }, 6000);
+  })();
+
+  safe(function initTabs(){
+    var tabs = document.querySelectorAll('.menu-tab');
+    tabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        var targetId = tab.getAttribute('data-panel');
+        tabs.forEach(function(t){ t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+        tab.classList.add('active'); tab.setAttribute('aria-selected','true');
+        document.querySelectorAll('.menu-panel').forEach(function(panel){
+          panel.classList.toggle('active', panel.id === targetId);
+        });
+      });
+    });
+  }, 'initTabs');
+
+  safe(function initTilt(){
+    if (matchMedia('(hover: none)').matches) return;
+    document.querySelectorAll('.servicio-card').forEach(function(card){
+      card.addEventListener('mousemove', function(e){
+        var rect = card.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        var rotateY = ((x / rect.width) - 0.5) * 12;
+        var rotateX = ((y / rect.height) - 0.5) * -12;
+        card.style.transform = 'perspective(700px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-4px)';
+        card.style.setProperty('--mx', (x / rect.width) * 100 + '%');
+        card.style.setProperty('--my', (y / rect.height) * 100 + '%');
+      });
+      card.addEventListener('mouseout', function(e){
+        if(!card.contains(e.relatedTarget)) card.style.transform = '';
+      });
+    });
+  }, 'initTilt');
+</script>
+<a class="whatsapp-fijo" href="https://wa.me/5493516655499?text=Hola%20Giuliano%2C%20vi%20la%20demo%20de%20Barber%C3%ADa%20La%20Navaja%20en%20tu%20portafolio." target="_blank" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.001 2.667c-7.363 0-13.334 5.97-13.334 13.333 0 2.353.615 4.56 1.688 6.475L2.667 29.333l6.99-1.833a13.27 13.27 0 0 0 6.344 1.614c7.363 0 13.333-5.97 13.333-13.333S23.364 2.667 16.001 2.667zm7.79 18.955c-.332.933-1.646 1.71-2.694 1.938-.716.153-1.652.276-4.8-1.03-4.03-1.668-6.62-5.75-6.822-6.017-.194-.267-1.624-2.163-1.624-4.128s1.02-2.93 1.383-3.33c.332-.363.727-.454.97-.454.242 0 .485.002.697.013.224.011.524-.085.82.626.332.796 1.13 2.75 1.23 2.95.097.2.163.436.033.703-.13.267-.194.436-.388.673-.194.236-.408.528-.582.71-.194.2-.396.418-.17.816.224.397 1 1.647 2.145 2.667 1.474 1.31 2.717 1.716 3.115 1.91.398.194.63.163.863-.1.234-.267.997-1.163 1.26-1.564.267-.4.533-.333.9-.2.363.133 2.31 1.09 2.706 1.288.397.2.66.297.756.464.097.166.097.965-.235 1.9z"/>
+  </svg>
+</a>
+
+</body>
+</html>
