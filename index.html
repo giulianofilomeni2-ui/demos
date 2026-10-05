@@ -3,548 +3,134 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Giuliano Filomeni — Sitios web para negocios</title>
-<meta name="description" content="Diseño y desarrollo de sitios web a medida para comercios, profesionales y empresas. Sin plantillas, listos para publicar.">
-
-<!-- Vista previa del enlace en WhatsApp, Instagram, LinkedIn y Gmail.
-     og:url y og:image tienen que ser absolutas: WhatsApp no resuelve rutas
-     relativas, y sin imagen el link se comparte como texto pelado. -->
-<meta property="og:type" content="website">
-<meta property="og:locale" content="es_AR">
-<meta property="og:site_name" content="Giuliano Filomeni">
-<meta property="og:url" content="https://giulianofilomeni2-ui.github.io/demos/">
-<meta property="og:title" content="Giuliano Filomeni — Sitios web para negocios">
-<meta property="og:description" content="Diseño y programo sitios web a medida para comercios, profesionales y empresas. Seis proyectos que podés recorrer completos.">
-<meta property="og:image" content="https://giulianofilomeni2-ui.github.io/demos/assets/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Sitios web a medida para negocios que venden más — Starlink, Barbería, Café Unión, Núcleo, Casa Nácar y FASE.">
-<meta name="twitter:card" content="summary_large_image">
-
+<title>Giuliano Filomeni · Desarrollo web con IA</title>
+<meta name="description" content="Portfolio de Giuliano Filomeni: sitios y apps web para negocios, desarrollados con inteligencia artificial. Córdoba, Argentina.">
+<meta property="og:title" content="Giuliano Filomeni · Desarrollo web con IA">
+<meta property="og:description" content="Sitios y apps web para negocios, desarrollados con IA.">
+<meta property="og:image" content="assets/og.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f4f2ec'/%3E%3Crect x='6' y='6' width='20' height='20' fill='%23d9381e'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap">
-
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f2f0ea'/%3E%3Crect x='6' y='6' width='20' height='20' fill='%23dd3b1c'/%3E%3C/svg%3E">
-
-<link rel="stylesheet" href="styles.css?v=20260909">
-<script>document.documentElement.className += " js-enabled";</script>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f2ec;--ink:#1b1b1a;--soft:#5d5b56;--line:#d9d5ca;--acc:#d9381e;--card:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 Archivo,system-ui,sans-serif}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+nav b{font-family:"Archivo Black";font-size:18px}
+nav a{text-decoration:none;font-weight:600;font-size:15px;margin-left:22px}
+nav a:hover{color:var(--acc)}
+.hero{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;padding:70px 0 80px;border-bottom:2px solid var(--ink)}
+.tag{color:var(--acc);font-weight:600;margin-bottom:14px}
+h1{font-family:"Archivo Black";font-size:clamp(38px,6.5vw,72px);line-height:1.02;letter-spacing:-1.5px}
+.hero p{max-width:560px;margin-top:22px;color:var(--soft);font-size:19px}
+.foto{width:210px;height:210px;border-radius:50%;object-fit:cover;border:4px solid var(--card);box-shadow:0 10px 30px #0002}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
+.btn.p{background:var(--ink);color:var(--bg)}
+.btn:hover{background:var(--acc);border-color:var(--acc);color:#fff}
+h2{font-family:"Archivo Black";font-size:30px;margin:80px 0 30px;display:flex;gap:16px;align-items:center}
+h2:after{content:"";flex:1;border-top:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.card{background:var(--card);border-radius:16px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;border:1px solid var(--line)}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px #0000001f}
+.card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-bottom:1px solid var(--line)}
+.card div{padding:20px 22px 24px}
+.card small{color:var(--acc);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+.card h3{font-family:"Archivo Black";font-size:22px;margin:4px 0 8px}
+.card p{color:var(--soft);font-size:15.5px}
+.card span{display:inline-block;margin-top:14px;font-weight:600;font-size:15px}
+.card:hover span{color:var(--acc)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.cols p{color:var(--soft);margin-bottom:12px}
+ul.chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:15px}
+footer{margin:90px 0 0;padding:50px 0 60px;border-top:2px solid var(--ink)}
+footer h2{margin-top:0}
+.contacto{display:flex;flex-wrap:wrap;gap:12px}
+.fin{margin-top:40px;color:var(--soft);font-size:14px}
+@media (max-width:760px){
+ nav a:not(:last-child){display:none}
+ .hero{grid-template-columns:1fr;padding:40px 0 56px}
+ .foto{width:130px;height:130px;order:-1}
+ .grid,.cols{grid-template-columns:1fr}
+ h2{margin-top:60px}
+}
+</style>
 </head>
 <body>
-<a class="skip-link" href="#main">Saltar al contenido</a>
+<div class="wrap">
 
-<!-- ============ MASTHEAD ============ -->
-<header class="masthead">
-  <div class="wrap masthead-inner">
-    <a class="masthead-name" href="#top" data-name>Giuliano Filomeni</a>
-    <nav class="masthead-meta" aria-label="Principal">
-      <a class="masthead-link" href="#trabajo">Trabajo</a>
-      <a class="masthead-link" href="#quien-soy">Quién soy</a>
-      <a class="masthead-link" href="#metodo">Método</a>
-      <a class="masthead-link" href="#precios">Precios</a>
-      <a class="masthead-link" href="#contacto">Contacto</a>
-      <a class="masthead-wa" data-whatsapp href="https://wa.me/5493516655499" target="_blank" rel="noopener">WhatsApp</a>
-    </nav>
-  </div>
+<nav><b>Giuliano Filomeni</b><div><a href="#trabajos">Trabajos</a><a href="#sobre-mi">Sobre mí</a><a href="#contacto">Contacto</a></div></nav>
+
+<header class="hero">
+ <div>
+  <div class="tag">Desarrollo web con IA · Córdoba, Argentina</div>
+  <h1>Sitios y apps web que los negocios usan de verdad.</h1>
+  <p>Desarrollo proyectos web completos, desde la idea hasta la publicación, usando inteligencia artificial como parte central de mi proceso. Eso me permite entregar rápido y con buen nivel de terminación.</p>
+  <div class="btns"><a class="btn p" href="#trabajos">Ver trabajos</a><a class="btn" href="#contacto">Contactarme</a></div>
+ </div>
+ <img class="foto" src="assets/giuliano.jpg" alt="Foto de Giuliano Filomeni">
 </header>
 
-<main id="main">
+<h2 id="trabajos">Trabajos</h2>
+<section class="grid">
+ <a class="card" href="https://giulianofilomeni2-ui.github.io/salgueros/" target="_blank" rel="noopener">
+  <img src="assets/trabajos/salgueros.jpg" alt="Web de Salguero's" loading="lazy">
+  <div><small>Cliente real · Pizzería</small><h3>Salguero's</h3>
+  <p>Carta digital y sistema de pedidos para una pizzería artesanal de Nueva Córdoba: promos armables, productos agotados, repetir pedido y app instalable en el celular.</p>
+  <span>Ver sitio →</span></div>
+ </a>
+ <a class="card" href="fase/" target="_blank" rel="noopener">
+  <img src="assets/trabajos/fase.jpg" alt="App Fase" loading="lazy">
+  <div><small>Sitio + app · Alto rendimiento en rugby</small><h3>Fase</h3>
+  <p>Dos partes: un sitio público que vende un programa de preparación física para rugby, y un portal privado que el jugador abre cada mañana para seguir su entrenamiento. Instalable en el celular.</p>
+  <span>Ver app →</span></div>
+ </a>
+ <a class="card" href="starlink/" target="_blank" rel="noopener">
+  <img src="assets/trabajos/starlink.jpg" alt="Landing Starlink" loading="lazy">
+  <div><small>Landing · Internet satelital</small><h3>Starlink</h3>
+  <p>Landing para venta e instalación con escena 3D animada (Three.js): satélites orbitando un globo, y formulario de cotización por zona.</p>
+  <span>Ver sitio →</span></div>
+ </a>
+ <a class="card" href="nucleo/" target="_blank" rel="noopener">
+  <img src="assets/trabajos/nucleo.jpg" alt="Sitio Núcleo" loading="lazy">
+  <div><small>Rediseño · CrossFit</small><h3>Núcleo</h3>
+  <p>Rediseño completo del sitio de un box de CrossFit, con una barra olímpica animada en la portada y horarios fáciles de consultar.</p>
+  <span>Ver sitio →</span></div>
+ </a>
+</section>
 
-  <!-- ============ HERO ============ -->
-  <section class="hero" id="top">
-    <div class="wrap">
-      <p class="hero-kicker">Índice de trabajo — <span data-year>2026</span></p>
-      <h1 class="hero-title">Sitios web a medida para negocios que quieren <span class="accent">vender más</span>.</h1>
+<h2 id="sobre-mi">Sobre mí</h2>
+<section class="cols">
+ <div>
+  <p>Soy de Córdoba. Cursé tres años de Educación Física en la UPC y en el camino descubrí que lo que más disfruto es construir cosas en la web.</p>
+  <p>Trabajo con herramientas de IA para diseñar, programar y publicar, y me ocupo del proyecto completo: entender el negocio, pensar la estructura, escribir los textos y dejarlo funcionando.</p>
+  <p>Hoy busco sumarme a un equipo para seguir creciendo en desarrollo web, automatizaciones e implementación de IA.</p>
+ </div>
+ <div>
+  <ul class="chips">
+   <li>Claude / Claude Code</li><li>ChatGPT</li><li>HTML y CSS</li><li>JavaScript (inicial)</li>
+   <li>Three.js</li><li>Git y GitHub</li><li>Diseño adaptable</li><li>Apps instalables (PWA)</li>
+   <li>Redacción para ventas</li><li>SEO básico</li>
+  </ul>
+ </div>
+</section>
 
-      <div class="hero-foot">
-        <p class="hero-lede">Diseño y programo sitios web para comercios, profesionales y empresas. Cada proyecto se escribe y se diseña desde cero, según el rubro y el público al que apunta.</p>
-        <dl class="hero-cell">
-          <dt>Proyectos propios</dt>
-          <dd>06</dd>
-        </dl>
-        <dl class="hero-cell">
-          <dt>Base</dt>
-          <dd>Córdoba, Argentina · Trabajo remoto</dd>
-        </dl>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ ÍNDICE ============ -->
-  <section id="trabajo">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Trabajo</h2>
-        <span class="label">Proyectos conceptuales · Seis rubros</span>
-      </div>
-
-      <p class="section-note">Proyectos propios, no encargos de clientes. Los desarrollé para mostrar criterio de diseño, redacción y código. Los seis están publicados y se pueden recorrer completos.</p>
-
-      <a class="index-row" href="#proy-starlink">
-        <span class="num">01</span>
-        <span class="index-name">Starlink</span>
-        <span class="index-meta">Internet satelital · Venta e instalación</span>
-        <span class="index-go">Ver ↓</span>
-      </a>
-      <a class="index-row" href="#proy-barberia">
-        <span class="num">02</span>
-        <span class="index-name">Barbería La Navaja</span>
-        <span class="index-meta">Barbería · San Telmo</span>
-        <span class="index-go">Ver ↓</span>
-      </a>
-      <a class="index-row" href="#proy-cafe">
-        <span class="num">03</span>
-        <span class="index-name">Café Unión</span>
-        <span class="index-meta">Café de especialidad · Villa Crespo</span>
-        <span class="index-go">Ver ↓</span>
-      </a>
-      <a class="index-row" href="#proy-nucleo">
-        <span class="num">04</span>
-        <span class="index-name">Núcleo</span>
-        <span class="index-meta">Box de CrossFit y halterofilia · Córdoba</span>
-        <span class="index-go">Ver ↓</span>
-      </a>
-      <a class="index-row" href="#proy-nacar">
-        <span class="num">05</span>
-        <span class="index-name">Casa Nácar</span>
-        <span class="index-meta">Estudio de estilistas · Nueva Córdoba</span>
-        <span class="index-go">Ver ↓</span>
-      </a>
-      <a class="index-row" href="#proy-fase">
-        <span class="num">06</span>
-        <span class="index-name">FASE</span>
-        <span class="index-meta">Preparación física para rugby · Web y app</span>
-        <span class="index-go">Ver ↓</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- ============ PROYECTO 01 — STARLINK ============ -->
-  <section class="project-section" id="proy-starlink">
-    <div class="wrap">
-      <div class="project">
-        <div class="project-info" data-reveal>
-          <span class="num">01</span>
-          <h2 class="project-title">Starlink</h2>
-          <p class="project-desc">Sitio de venta para un servicio de internet satelital. El centro visual es una escena tridimensional programada con Three.js: satélites orbitando un globo de puntos, construida con código propio en lugar de un video de fondo.</p>
-
-          <dl class="project-case">
-            <div><dt>El problema</dt><dd>Un servicio técnico que se contrata sin verlo: nadie sabe qué recibe ni si funciona donde vive.</dd></div>
-            <div><dt>La decisión</dt><dd>Poner el producto en escena. Una órbita animada en el inicio y la antena dibujada en la ficha técnica, para que se entienda de qué se trata antes de leer una sola especificación.</dd></div>
-            <div><dt>Qué resuelve</dt><dd>Explica la tecnología sin tecnicismos y lleva a un formulario de cotización por zona, que es donde arranca la venta.</dd></div>
-          </dl>
-          <div class="project-swatches" aria-hidden="true">
-            <span style="background:#05070d"></span><span style="background:#1a2743"></span>
-            <span style="background:#35d7ff"></span><span style="background:#8567ff"></span>
-          </div>
-          <dl class="project-specs">
-            <div><dt>Rubro</dt><dd>Tecnología</dd></div>
-            <div><dt>Año</dt><dd>2026</dd></div>
-            <div><dt>Tipografía</dt><dd>IBM Plex</dd></div>
-            <div><dt>Objetivo</dt><dd>Pedidos de cotización</dd></div>
-          </dl>
-          <a class="project-cta" data-project-link="starlink" href="starlink/" target="_blank" rel="noopener">Abrir sitio ↗</a>
-        </div>
-
-        <div class="preview" data-reveal>
-          <span class="preview-tag">Demo en vivo</span>
-          <span class="preview-fallback" style="--fallback-bg:#05070d; --fallback-ink:#eef2fb;">
-            <strong>Starlink</strong>
-            <span>Escena 3D · Internet satelital</span>
-          </span>
-          <iframe data-project-frame="starlink" title="Vista previa del sitio Starlink"
-                  loading="lazy" tabindex="-1" scrolling="no" aria-hidden="true"></iframe>
-          <a class="preview-open" data-project-link="starlink" href="starlink/" target="_blank" rel="noopener">
-            <span>Abrir sitio ↗</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROYECTO 02 — BARBERÍA ============ -->
-  <section class="project-section" id="proy-barberia">
-    <div class="wrap">
-      <div class="project">
-        <div class="project-info" data-reveal>
-          <span class="num">02</span>
-          <h2 class="project-title">Barbería La Navaja</h2>
-          <p class="project-desc">Registro editorial oscuro y cálido para una barbería que trabaja a navaja. Toda la navegación conduce a un único objetivo: solicitar el turno por WhatsApp.</p>
-
-          <dl class="project-case">
-            <div><dt>El problema</dt><dd>Una barbería de oficio compite contra cadenas más baratas y rápidas. Su ventaja es el tiempo que le dedica a cada corte, algo difícil de mostrar en una foto.</dd></div>
-            <div><dt>La decisión</dt><dd>Fondo oscuro, tipografía con serifa y textos pausados. El sitio transmite calma en vez de urgencia, que es exactamente lo que se vende.</dd></div>
-            <div><dt>Qué resuelve</dt><dd>Justifica un precio más alto que el de la cadena de al lado y concentra todos los caminos en un solo botón de turno.</dd></div>
-          </dl>
-          <div class="project-swatches" aria-hidden="true">
-            <span style="background:#2a1d14"></span><span style="background:#6b4a2f"></span>
-            <span style="background:#c08b5c"></span><span style="background:#efe6d8"></span>
-          </div>
-          <dl class="project-specs">
-            <div><dt>Rubro</dt><dd>Barbería</dd></div>
-            <div><dt>Año</dt><dd>2026</dd></div>
-            <div><dt>Tipografía</dt><dd>Fraunces + Inter</dd></div>
-            <div><dt>Objetivo</dt><dd>Turnos por WhatsApp</dd></div>
-          </dl>
-          <a class="project-cta" data-project-link="barberia" href="barberia-la-navaja/" target="_blank" rel="noopener">Abrir sitio ↗</a>
-        </div>
-
-        <div class="preview" data-reveal>
-          <span class="preview-tag">Demo en vivo</span>
-          <span class="preview-fallback" style="--fallback-bg:#2a1d14; --fallback-ink:#efe6d8;">
-            <strong>Barbería La Navaja</strong>
-            <span>Editorial oscuro · San Telmo</span>
-          </span>
-          <iframe data-project-frame="barberia" title="Vista previa del sitio Barbería La Navaja"
-                  loading="lazy" tabindex="-1" scrolling="no" aria-hidden="true"></iframe>
-          <a class="preview-open" data-project-link="barberia" href="barberia-la-navaja/" target="_blank" rel="noopener">
-            <span>Abrir sitio ↗</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROYECTO 03 — CAFÉ ============ -->
-  <section class="project-section" id="proy-cafe">
-    <div class="wrap">
-      <div class="project">
-        <div class="project-info" data-reveal>
-          <span class="num">03</span>
-          <h2 class="project-title">Café Unión</h2>
-          <p class="project-desc">Paleta de papel crema y terracota para una casa de café de especialidad con tostado propio. La fotografía ocupa el lugar principal y los textos evitan el tono de folleto.</p>
-
-          <dl class="project-case">
-            <div><dt>El problema</dt><dd>Un café de especialidad entre muchos. Lo que lo distingue —que tuesta a diez metros de la barra— no se percibe desde la vereda.</dd></div>
-            <div><dt>La decisión</dt><dd>Abrir con esa frase como titular y apoyarla en fotos del local y del tostado, en lugar de hablar de "experiencia" o "pasión por el café".</dd></div>
-            <div><dt>Qué resuelve</dt><dd>Da una razón concreta para elegirlo por sobre el de la otra cuadra, y ordena menú, horarios y reserva en un solo lugar.</dd></div>
-          </dl>
-          <div class="project-swatches" aria-hidden="true">
-            <span style="background:#f4efe6"></span><span style="background:#e0d4c2"></span>
-            <span style="background:#c0442e"></span><span style="background:#2a2018"></span>
-          </div>
-          <dl class="project-specs">
-            <div><dt>Rubro</dt><dd>Gastronomía</dd></div>
-            <div><dt>Año</dt><dd>2026</dd></div>
-            <div><dt>Tipografía</dt><dd>Fraunces + Sora</dd></div>
-            <div><dt>Objetivo</dt><dd>Reservas por WhatsApp</dd></div>
-          </dl>
-          <a class="project-cta" data-project-link="cafe" href="cafe-union/" target="_blank" rel="noopener">Abrir sitio ↗</a>
-        </div>
-
-        <div class="preview" data-reveal>
-          <span class="preview-tag">Demo en vivo</span>
-          <span class="preview-fallback" style="--fallback-bg:#f4efe6; --fallback-ink:#2a2018;">
-            <strong>Café Unión</strong>
-            <span>Editorial crema · Villa Crespo</span>
-          </span>
-          <iframe data-project-frame="cafe" title="Vista previa del sitio Café Unión"
-                  loading="lazy" tabindex="-1" scrolling="no" aria-hidden="true"></iframe>
-          <a class="preview-open" data-project-link="cafe" href="cafe-union/" target="_blank" rel="noopener">
-            <span>Abrir sitio ↗</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROYECTO 04 — NÚCLEO ============ -->
-  <section class="project-section" id="proy-nucleo">
-    <div class="wrap">
-      <div class="project">
-        <div class="project-info" data-reveal>
-          <span class="num">04</span>
-          <h2 class="project-title">Núcleo</h2>
-          <p class="project-desc">Rediseño completo de un sitio que ya existía, para un box de CrossFit y halterofilia. Fotografía a sangre, portada de apertura y una barra olímpica dibujada en SVG donde el visitante arma el peso que levantó y lo guarda como marca personal.</p>
-
-          <dl class="project-case">
-            <div><dt>El problema</dt><dd>El sitio anterior hablaba de "entrenamiento funcional" con el mismo tono que cualquier cadena. Nada dejaba ver que ahí se levanta en serio.</dd></div>
-            <div><dt>La decisión</dt><dd>En lugar de sumar otra galería de fotos, darle al visitante algo para hacer: una barra que se carga con discos de competición, se arquea con el peso y guarda los récords por movimiento en el propio navegador.</dd></div>
-            <div><dt>Qué resuelve</dt><dd>Le da un motivo para volver, no solo para mirar: cada kilo que sube se vuelve a anotar. Los horarios y la clase de prueba quedan siempre a un clic.</dd></div>
-          </dl>
-          <div class="project-swatches" aria-hidden="true">
-            <span style="background:#0f0c0a"></span><span style="background:#f4eee5"></span>
-            <span style="background:#e2521c"></span><span style="background:#1a53a8"></span>
-          </div>
-          <dl class="project-specs">
-            <div><dt>Rubro</dt><dd>Gimnasio · CrossFit</dd></div>
-            <div><dt>Año</dt><dd>2026</dd></div>
-            <div><dt>Tipografía</dt><dd>Bricolage Grotesque + Inter</dd></div>
-            <div><dt>Objetivo</dt><dd>Clases de prueba</dd></div>
-          </dl>
-          <a class="project-cta" data-project-link="nucleo" href="nucleo/" target="_blank" rel="noopener">Abrir sitio ↗</a>
-        </div>
-
-        <div class="preview" data-reveal>
-          <span class="preview-tag">Demo en vivo</span>
-          <span class="preview-fallback" style="--fallback-bg:#0f0c0a; --fallback-ink:#f4eee5;">
-            <strong>Núcleo</strong>
-            <span>Foto a sangre · Nueva Córdoba</span>
-          </span>
-          <iframe data-project-frame="nucleo" title="Vista previa del sitio Núcleo"
-                  loading="lazy" tabindex="-1" scrolling="no" aria-hidden="true"></iframe>
-          <a class="preview-open" data-project-link="nucleo" href="nucleo/" target="_blank" rel="noopener">
-            <span>Abrir sitio ↗</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROYECTO 05 — CASA NÁCAR ============ -->
-  <section class="project-section" id="proy-nacar">
-    <div class="wrap">
-      <div class="project">
-        <div class="project-info" data-reveal>
-          <span class="num">05</span>
-          <h2 class="project-title">Casa Nácar</h2>
-          <p class="project-desc">Estudio de estilistas en Nueva Córdoba. Paleta de rosas y verde salvia, tipografía serif redondeada y un scroll suave con parallax. La página tiene un turnero y una guía de color que la clienta usa antes de escribir.</p>
-
-          <dl class="project-case">
-            <div><dt>El problema</dt><dd>En una peluquería el turno se arregla por WhatsApp en diez mensajes de ida y vuelta: qué servicio, con quién, qué día. Y quien quiere cambiar el color no sabe qué técnica pedir.</dd></div>
-            <div><dt>La decisión</dt><dd>Que la página arme el pedido. La clienta elige servicio, estilista y día, y una guía le sugiere la técnica según el cambio que busca.</dd></div>
-            <div><dt>Qué resuelve</dt><dd>El mensaje llega al salón completo y listo para confirmar. La guía responde la pregunta que más se repite antes de cada turno.</dd></div>
-          </dl>
-          <div class="project-swatches" aria-hidden="true">
-            <span style="background:#2e3327"></span><span style="background:#f6e5e7"></span>
-            <span style="background:#e69b97"></span><span style="background:#a0ab89"></span>
-          </div>
-          <dl class="project-specs">
-            <div><dt>Rubro</dt><dd>Peluquería · Estilistas</dd></div>
-            <div><dt>Año</dt><dd>2026</dd></div>
-            <div><dt>Tipografía</dt><dd>Fraunces + Jost</dd></div>
-            <div><dt>Objetivo</dt><dd>Turnos por WhatsApp</dd></div>
-          </dl>
-          <a class="project-cta" data-project-link="nacar" href="casa-nacar/" target="_blank" rel="noopener">Abrir sitio ↗</a>
-        </div>
-
-        <div class="preview" data-reveal>
-          <span class="preview-tag">Demo en vivo</span>
-          <span class="preview-fallback" style="--fallback-bg:#f6e5e7; --fallback-ink:#2e3327;">
-            <strong>Casa Nácar</strong>
-            <span>Turnero · Nueva Córdoba</span>
-          </span>
-          <iframe data-project-frame="nacar" title="Vista previa del sitio Casa Nácar"
-                  loading="lazy" tabindex="-1" scrolling="no" aria-hidden="true"></iframe>
-          <a class="preview-open" data-project-link="nacar" href="casa-nacar/" target="_blank" rel="noopener">
-            <span>Abrir sitio ↗</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROYECTO 06 — FASE ============ -->
-  <section class="project-section" id="proy-fase">
-    <div class="wrap">
-      <div class="project">
-        <div class="project-info" data-reveal>
-          <span class="num">06</span>
-          <h2 class="project-title">FASE</h2>
-          <p class="project-desc">Marca de preparación física para rugby amateur, en dos piezas: la web que vende el plan y un portal del jugador que se instala en el celular como una app, con la sesión del día, la ingesta y la carga antes del partido.</p>
-
-          <dl class="project-case">
-            <div><dt>El problema</dt><dd>El jugador amateur labura de lunes a viernes y entrena dos noches en el club. Una rutina en PDF se pierde en el grupo del equipo.</dd></div>
-            <div><dt>La decisión</dt><dd>Separar la venta del uso. La web convence con el idioma de la cancha; el portal se instala como una app y abre en el gimnasio aunque no haya señal.</dd></div>
-            <div><dt>Qué resuelve</dt><dd>El plan vive en el celular del jugador y no en un archivo. La web capta y el portal hace que se quede.</dd></div>
-          </dl>
-          <div class="project-swatches" aria-hidden="true">
-            <span style="background:#08070a"></span><span style="background:#f2efe9"></span>
-            <span style="background:#e01b24"></span><span style="background:#9a97a4"></span>
-          </div>
-          <dl class="project-specs">
-            <div><dt>Rubro</dt><dd>Deporte · Rugby</dd></div>
-            <div><dt>Año</dt><dd>2026</dd></div>
-            <div><dt>Tipografía</dt><dd>Barlow Condensed + JetBrains Mono</dd></div>
-            <div><dt>Objetivo</dt><dd>Altas al plan</dd></div>
-          </dl>
-          <a class="project-cta" data-project-link="fase" href="fase/" target="_blank" rel="noopener">Abrir sitio ↗</a>
-        </div>
-
-        <div class="preview" data-reveal>
-          <span class="preview-tag">Demo en vivo</span>
-          <span class="preview-fallback" style="--fallback-bg:#08070a; --fallback-ink:#f2efe9;">
-            <strong>FASE</strong>
-            <span>Web + app instalable · Rugby</span>
-          </span>
-          <iframe data-project-frame="fase" title="Vista previa del sitio FASE"
-                  loading="lazy" tabindex="-1" scrolling="no" aria-hidden="true"></iframe>
-          <a class="preview-open" data-project-link="fase" href="fase/" target="_blank" rel="noopener">
-            <span>Abrir sitio ↗</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ QUIÉN SOY ============ -->
-  <section class="about" id="quien-soy">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Quién soy</h2>
-        <span class="label">Córdoba, Argentina</span>
-      </div>
-
-      <div class="about-grid">
-        <figure class="about-photo" data-photo>
-          <img src="assets/giuliano.jpg" alt="Retrato de Giuliano Filomeni" width="600" height="750" decoding="async">
-          <figcaption class="about-photo-empty">Falta subir la foto a <code>assets/giuliano.jpg</code></figcaption>
-        </figure>
-
-        <div class="about-text" data-reveal>
-          <p class="about-lede">Me llamo <span data-name>Giuliano Filomeni</span>, vivo en Córdoba y desarrollo sitios web para negocios.</p>
-
-          <p>Comencé este año. Antes venía formándome por mi cuenta con cursos de programación y un paso por Junior Achievement en 2023, hasta que decidí dedicarme de lleno a esto.</p>
-
-          <p>Trabajo con comercios, profesionales independientes y emprendimientos que quieren potenciar su negocio: gastronomía, servicios, oficios y distribuidores. Suelen ser negocios que ya funcionan bien, pero que dependen del boca a boca o de una cuenta de Instagram y necesitan un sitio propio adonde dirigir a sus clientes.</p>
-
-          <p>Trabajo de forma remota, así que la ubicación no es un límite: coordinamos todo por WhatsApp o videollamada, dentro y fuera del país.</p>
-
-          <p class="about-status"><span class="dot" aria-hidden="true"></span> Disponibilidad inmediata: puedo comenzar tu proyecto esta semana.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ MÉTODO ============ -->
-  <section id="metodo">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Método</h2>
-        <span class="label">Cómo trabajo</span>
-      </div>
-
-      <div class="method">
-        <article class="method-item" data-reveal>
-          <span class="num">01</span>
-          <h3>Sin plantillas</h3>
-          <p>Cada sitio parte de cero. La paleta, la tipografía y la estructura se definen según el rubro y el público al que apunta, no a partir de un tema comprado.</p>
-        </article>
-        <article class="method-item" data-reveal>
-          <span class="num">02</span>
-          <h3>Los textos importan tanto como el diseño</h3>
-          <p>Redacto los contenidos con el negocio como protagonista: qué ofrece, dónde está y por qué conviene elegirlo. Sin frases infladas.</p>
-        </article>
-        <article class="method-item" data-reveal>
-          <span class="num">03</span>
-          <h3>Listo para publicar</h3>
-          <p>HTML, CSS y JavaScript sin dependencias externas. Se sube a cualquier hosting y funciona, sin procesos de compilación ni suscripciones mensuales.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PRECIOS ============ -->
-  <section id="precios">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Precios</h2>
-        <div class="currency-switch" role="group" aria-label="Elegí la moneda">
-          <button type="button" class="is-active" data-currency="ars" aria-pressed="true">ARS</button>
-          <button type="button" data-currency="usd" aria-pressed="false">USD</button>
-        </div>
-      </div>
-
-      <div class="plans">
-
-        <article class="plan" data-reveal>
-          <span class="num">01</span>
-          <h3 class="plan-name">Esencial</h3>
-          <p class="plan-price">
-            <span class="cur" data-cur-ars>$</span><span data-price="esencial">280.000</span><span class="cur" data-cur-usd hidden> USD</span>
-          </p>
-          <p class="plan-for">Para negocios que todavía no tienen presencia online.</p>
-          <ul class="plan-list">
-            <li>Una página, hasta 6 secciones</li>
-            <li>Diseño a medida, sin plantilla</li>
-            <li>Adaptado a celular y contacto directo por WhatsApp</li>
-            <li>Entrega en 5 días hábiles</li>
-          </ul>
-        </article>
-
-        <article class="plan is-featured" data-reveal>
-          <span class="num">02</span>
-          <span class="plan-badge">Más elegido</span>
-          <h3 class="plan-name">Pro</h3>
-          <p class="plan-price">
-            <span class="cur" data-cur-ars>$</span><span data-price="pro">420.000</span><span class="cur" data-cur-usd hidden> USD</span>
-          </p>
-          <p class="plan-for">Para quienes necesitan que el sitio además genere consultas.</p>
-          <ul class="plan-list">
-            <li>Todo lo del plan Esencial</li>
-            <li>Redacción de contenidos incluida</li>
-            <li>SEO técnico y Google Analytics</li>
-            <li>Animaciones desarrolladas a medida</li>
-            <li>2 rondas de cambios · Entrega en 7 a 10 días</li>
-          </ul>
-        </article>
-
-        <article class="plan" data-reveal>
-          <span class="num">03</span>
-          <h3 class="plan-name">Sitio completo</h3>
-          <p class="plan-price">
-            <span class="cur" data-cur-ars>$</span><span data-price="completo">750.000</span><span class="cur" data-cur-usd hidden> USD</span>
-          </p>
-          <p class="plan-for">Para quienes necesitan catálogo, blog o varias secciones.</p>
-          <ul class="plan-list">
-            <li>Todo lo del plan Pro</li>
-            <li>Hasta 5 páginas</li>
-            <li>Catálogo o blog administrable</li>
-            <li>Entrega en 2 a 3 semanas</li>
-          </ul>
-        </article>
-
-      </div>
-
-      <div class="plan-extra" data-reveal>
-        <div>
-          <h3>Mantenimiento mensual</h3>
-          <p>Hosting gestionado, copias de seguridad, monitoreo y hasta 2 cambios por mes. Es opcional y se puede dar de baja en cualquier momento.</p>
-        </div>
-        <p class="plan-price plan-price-sm">
-          <span class="cur" data-cur-ars>$</span><span data-price="mantenimiento">45.000</span><span class="cur" data-cur-usd hidden> USD</span><span class="per">/mes</span>
-        </p>
-      </div>
-
-      <ul class="terms">
-        <li><strong>50%</strong> de anticipo para comenzar, el resto contra entrega.</li>
-        <li><strong>2 rondas</strong> de cambios incluidas; a partir de ahí se cotiza aparte.</li>
-        <li><strong>30 días</strong> de soporte sin cargo después de publicar.</li>
-        <li>El dominio y el hosting quedan <strong>a tu nombre</strong>, siempre.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ============ CONTACTO ============ -->
-  <section class="contact" id="contacto">
-    <div class="wrap">
-      <p class="label" style="margin-bottom:1.2rem;">¿Tu negocio no tiene sitio web, o el que tiene no genera consultas?</p>
-
-      <div class="contact-channels">
-        <a class="btn-wa" data-whatsapp href="https://wa.me/5493516655499" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-            <path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 20l1.1-5.4A8.5 8.5 0 1 1 21 11.5Z"/>
-          </svg>
-          Escribime por WhatsApp
-        </a>
-        <span class="contact-or">o por mail:</span>
-        <a class="contact-mail" data-email href="mailto:giulianofilomeni2@gmail.com">giulianofilomeni2@gmail.com</a>
-      </div>
-
-      <p class="contact-sub">Contame de qué se trata y te respondo qué se puede hacer, cuánto cuesta y en cuánto tiempo.</p>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="wrap footer-inner">
-    <p>© <span data-year>2026</span> <span data-name>Giuliano Filomeni</span> — Córdoba, Argentina</p>
-    <p>Desarrollado a medida en HTML, CSS y JavaScript.</p>
-  </div>
+<footer id="contacto">
+ <h2>Contacto</h2>
+ <p style="color:var(--soft);margin-bottom:22px">¿Tenés una búsqueda o un proyecto? Escribime.</p>
+ <div class="contacto">
+  <a class="btn p" href="mailto:giulianofilomeni2@gmail.com">giulianofilomeni2@gmail.com</a>
+  <a class="btn" href="https://wa.me/5493516655499" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="btn" href="https://www.linkedin.com/in/giuliano-filomeni-4b430224b/" target="_blank" rel="noopener">LinkedIn</a>
+  <a class="btn" href="https://github.com/giulianofilomeni2-ui" target="_blank" rel="noopener">GitHub</a>
+ </div>
+ <p class="fin">© 2026 Giuliano Filomeni</p>
 </footer>
 
-<script defer src="lib/manifest.js"></script>
-<script defer src="main.js?v=20260909"></script>
+</div>
 </body>
 </html>
